@@ -1,0 +1,10 @@
+label kernel-4.4
+    kernel /zImage
+    fdt /rk3229-evb.dtb
+    initrd /initrd-armv7.gz
+    append dyndbg="init/initramfs.c +p" earlycon=uart8250,mmio32,0x11030000 console=ttyS2,1500000n8 console=tty0 console=uart0 rw root=PARTUUID=13c23b14-02 rootfstype=ext4 init=/sbin/init rootwait rd_start=0x0x6590d000 rd_size=45032707 
+
+
+
+
+
