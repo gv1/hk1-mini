@@ -1,0 +1,1018 @@
+DDR Version V1.06 20171026
+In
+300MHz
+DDR3
+Bus Width=16 Col=11 Bank=8 Row=16 CS=1 Die Bus-Width=16 Size=2048MB
+mach:3
+OUT
+Boot1 Release Time: Feb  2 2018 15:48:13, version: 2.38
+ChipType = 0xc, 341
+No.1 FLASH ID:1f ff ff ff ff ff
+SdmmcInit=2 0
+BootCapSize=1000
+UserCapSize=14910MB
+FwPartOffset=2000 , 1000
+SdmmcInit=0 0
+BootCapSize=0
+UserCapSize=15193MB
+FwPartOffset=2000 , 0
+StorageInit ok = 298777
+SecureMode = 0
+LOADER Check OK! 0x61000000, 367996
+TOS    Check OK! 0x68400000, 400725
+Enter Trust OS
+INF TEE-CORE:init_primary_helper:319: Initializing (1.0.1-79-g2825a12 #2 2018年 06月 13日 星期三 02:15:50 UTC arm)
+INF TEE-CORE:init_primary_helper:320: Release version: 1.9
+INF TEE-CORE:init_teecore:79: teecore inits done
+
+
+U-Boot 2017.09-gb34cbcd-dirty (Nov 11 2018 - 10:32:56 +0530)
+
+Model: Rockchip RK3229 Evaluation board
+DRAM:  2 GiB
+Relocation Offset is: 7ef18000
+GV arch/arm/mach-rockchip/board board_init
+MMC:   dwmmc@30000000: 1, dwmmc@30020000: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial@11030000
+Out:   serial@11030000
+Err:   serial@11030000
+Model: Rockchip RK3229 Evaluation board
+GV processing command : run rkimg_bootdev 
+GV processing command : mmc dev 1 
+switch to partitions #0, OK
+mmc1 is current device
+GV processing command : rkimgtest mmc 1 
+Unknown command 'rkimgtest' - try 'help'
+GV processing command : mmc dev 0 
+switch to partitions #0, OK
+mmc0(part 0) is current device
+GV processing command : setenv devtype mmc 
+GV processing command : setenv devnum 0 
+rockchip_dnl_key_pressed adc_channel_single_shot fail! ret=-19
+get part misc fail -1
+CLK:      apll           600000000 Hz
+          dpll           600000000 Hz
+          cpll           500000000 Hz
+          gpll          1200000000 Hz
+        armclk           600000000 Hz
+      aclk_bus           150000000 Hz
+      hclk_bus            75000000 Hz
+      pclk_bus            75000000 Hz
+     aclk_peri           150000000 Hz
+     hclk_peri            75000000 Hz
+     pclk_peri            75000000 Hz
+Net:   
+Warning: ethernet@30200000 (eth0) using random MAC address - ca:f6:53:33:b2:90
+eth0: ethernet@30200000
+Hit any key to stop autoboot:  0 
+GV processing command : boot_android mmc 0 
+android_bootloader_boot_flow Could not find misc partition
+MMC: block number 0xb7e5914e exceeds max(0x1d1f000)
+failed to read ca head from misc
+get part misc fail -1
+ANDROID: reboot reason: "(none)"
+android_bootloader_boot_flow Could not found bootable partition boot
+Android boot failed, error -1.
+GV processing command : bootrkp 
+Unknown command 'bootrkp' - try 'help'
+GV processing command : run distro_bootcmd 
+GV : command : target=mmc1 
+GV processing command : run bootcmd_mmc1 
+GV processing command : setenv devnum 1 
+GV processing command : run mmc_boot 
+GV processing command : mmc dev 1 
+switch to partitions #0, OK
+mmc1 is current device
+GV processing command : setenv devtype mmc 
+GV processing command : run scan_dev_for_boot_part 
+GV processing command : part list mmc 1 -bootable devplist 
+GV processing command : env exists devplist 
+GV processing command : setenv devplist 1 
+GV : command : distro_bootpart=1 
+GV processing command : fstype mmc 1:1 bootfstype 
+GV processing command : run scan_dev_for_boot 
+GV processing command : echo Scanning mmc 1:1... 
+Scanning mmc 1:1...
+GV : command : prefix=/ 
+GV processing command : run scan_dev_for_extlinux 
+GV processing command : test -e mmc 1:1 /extlinux/extlinux.conf 
+GV processing command : echo Found /extlinux/extlinux.conf 
+Found /extlinux/extlinux.conf
+GV processing command : run boot_extlinux 
+GV processing command : sysboot mmc 1:1 any 0x60000000 /extlinux/extlinux.conf 
+Retrieving file: /extlinux/extlinux.conf
+272 bytes read in 7 ms (37.1 KiB/s)
+1:	kernel-4.4
+Retrieving file: /zImage.smp
+7115312 bytes read in 327 ms (20.8 MiB/s)
+append: dyndbg="init/initramfs.c +p" earlycon=uart8250,mmio32,0x11030000 console=ttyS2,1500000n8 console=tty0 console=uart0 rw root=/dev/mmcblk0p1 rootfstype=ext4 storagetype=mmc init=/sbin/init rootwait 
+Retrieving file: /rk3229-evb.dtb
+36493 bytes read in 8 ms (4.3 MiB/s)
+## Flattened Device Tree blob at 61f00000
+   Booting using the fdt blob at 0x61f00000
+  'reserved-memory' ramoops@62e00000: addr=62e00000 size=f0000
+  'reserved-memory' trust@0x68400000: addr=68400000 size=e00000
+   Loading Device Tree to 7fff4000, end 7ffffe8c ... OK
+Adding bank: start=0x60000000, size=0x08400000
+Adding bank: start=0x68500000, size=0x77b00000
+
+Starting kernel ...
+
+
+[    0.000000] Booting Linux on physical CPU 0xf00
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 4.4.154 (george@manga) (gcc version 6.3.1 20170404 (Linaro GCC 6.3-2017.05) ) #4 SMP Sat Dec 1 10:36:49 IST 2018
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine model: Rockchip RK3229 Evaluation board
+[    0.000000] earlycon: Early serial console at MMIO32 0x11030000 (options '')
+[    0.000000] bootconsole [uart0] enabled
+[    0.000000] Reserved memory: failed to reserve memory for node 'drm-logo@00000000': base 0x00000000, size 0 MiB
+[    0.000000] Reserved memory: failed to reserve memory for node 'secure-memory@80000000': base 0x80000000, size 0 MiB
+[    0.000000] cma: Reserved 16 MiB at 0xdf000000
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv65535.65535 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] PERCPU: Embedded 14 pages/cpu @eef92000 s24664 r8192 d24488 u57344
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 519168
+[    0.000000] Kernel command line: dyndbg="init/initramfs.c +p" earlycon=uart8250,mmio32,0x11030000 console=ttyS2,1500000n8 console=tty0 console=uart0 rw root=/dev/mmcblk0p1 rootfstype=ext4 storagetype=mmc init=/sbin/init rootwait 
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 2030976K/2082816K available (10240K kernel code, 988K rwdata, 3068K rodata, 1024K init, 579K bss, 35456K reserved, 16384K cma-reserved, 1294336K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0b00000   (11232 kB)
+[    0.000000]       .init : 0xc0f00000 - 0xc1000000   (1024 kB)
+[    0.000000]       .data : 0xc1000000 - 0xc10f72d4   ( 989 kB)
+[    0.000000]        .bss : 0xc10f9000 - 0xc1189c30   ( 580 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	Build-time adjustment of leaf fanout to 32.
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] Architected cp15 timer(s) running at 24.00MHz (virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000009] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000730] Switching to timer-based delay loop, resolution 41ns
+[    0.003054] Console: colour dummy device 80x30
+[    0.004624] console [tty0] enabled
+[    0.004983] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+[    0.005958] pid_max: default: 32768 minimum: 301
+[    0.006512] Security Framework initialized
+[    0.006909] Yama: becoming mindful.
+[    0.007324] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.007949] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.009793] Initializing cgroup subsys devices
+[    0.010258] Initializing cgroup subsys freezer
+[    0.010713] CPU: Testing write buffer coherency: ok
+[    0.011229] ftrace: allocating 38881 entries in 115 pages
+[    0.089398] /cpus/cpu@f00 missing clock-frequency property
+[    0.089971] /cpus/cpu@f01 missing clock-frequency property
+[    0.090504] /cpus/cpu@f02 missing clock-frequency property
+[    0.091039] /cpus/cpu@f03 missing clock-frequency property
+[    0.091567] CPU0: update cpu_capacity 430
+[    0.091954] CPU0: thread -1, cpu 0, socket 15, mpidr 80000f00
+[    0.092609] Setting up static identity map for 0x60100000 - 0x60100058
+[    0.100788] dynamic_debug:ddebug_parse_query: expecting pairs of match-spec <value>
+[    0.101555] dynamic_debug:ddebug_exec_query: query parse failed
+[ 5138.862862] CPU1: update cpu_capacity 430
+[ 5138.862872] CPU1: thread -1, cpu 1, socket 15, mpidr 80000f01
+[ 6317.980533] CPU2: update cpu_capacity 430
+[ 6317.980541] CPU2: thread -1, cpu 2, socket 15, mpidr 80000f02
+[ 8628.438871] CPU3: update cpu_capacity 430
+[ 8628.438879] CPU3: thread -1, cpu 3, socket 15, mpidr 80000f03
+[    0.106143] Brought up 4 CPUs
+[    0.109673] SMP: Total of 4 processors activated (192.00 BogoMIPS).
+[    0.110267] CPU: All CPU(s) started in SVC mode.
+[    0.112460] devtmpfs: initialized
+[    0.129572] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.130902] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.131885] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.134170] pinctrl core: initialized pinctrl subsystem
+[    0.136751] NET: Registered protocol family 16
+[    0.139218] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.170062] cpuidle: using governor ladder
+[    0.200086] cpuidle: using governor menu
+[    0.222831] console [pstore-1] enabled
+[    0.223218] pstore: Registered ramoops as persistent store backend
+[    0.223810] ramoops: attached 0xf0000@0x62e00000, ecc: 0/0
+[    0.227465] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.228251] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.229057] sip_firmware_init: set rockchip sip version v2 failed
+[    0.276571] iommu: Adding device 20050000.vop to group 0
+[    0.278559] SCSI subsystem initialized
+[    0.279355] usbcore: registered new interface driver usbfs
+[    0.279974] usbcore: registered new interface driver hub
+[    0.280726] usbcore: registered new device driver usb
+[    0.281423] media: Linux media interface: v0.10
+[    0.281957] Linux video capture interface: v2.00
+[    0.282465] pps_core: LinuxPPS API ver. 1 registered
+[    0.282946] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.283848] PTP clock support registered
+[    0.286447] Advanced Linux Sound Architecture Driver Initialized.
+[    0.288169] Bluetooth: Core ver 2.21
+[    0.288601] NET: Registered protocol family 31
+[    0.289032] Bluetooth: HCI device and connection manager initialized
+[    0.289649] Bluetooth: HCI socket layer initialized
+[    0.290143] Bluetooth: L2CAP socket layer initialized
+[    0.290767] Bluetooth: SCO socket layer initialized
+[    0.293777] clocksource: Switched to clocksource arch_sys_counter
+[    7.300706] BUG: spinlock lockup suspected on CPU#0, swapper/0/1
+[    7.301309]  lock: 0xc1015d80, .magic: dead4ead, .owner: swapper/1/0, .owner_cpu: 1
+[    7.302053] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.4.154 #4
+[    7.302626] Hardware name: Generic DT based system
+[    7.303124] [<c0110be8>] (unwind_backtrace) from [<c010c6a4>] (show_stack+0x20/0x24)
+[ 8635.636059] BUG: spinlock lockup suspected on CPU#3, swapper/3/0
+[ 8635.636070]  lock: 0xc1015d80, .magic: dead4ead, .owner: swapper/1/0, .owner_cpu: 1
+[    7.305171] [<c010c6a4>] (show_stack) from [<c040bcec>] (dump_stack+0x84/0xa0)
+[    7.305877] [<c040bcec>] (dump_stack) from [<c016f530>] (spin_dump+0x8c/0xa0)
+[    7.306564] [<c016f530>] (spin_dump) from [<c016f70c>] (do_raw_spin_lock+0x120/0x1a4)
+[    7.307324] [<c016f70c>] (do_raw_spin_lock) from [<c0ad2008>] (_raw_spin_lock_irqsave+0x20/0x28)
+[    7.308175] [<c0ad2008>] (_raw_spin_lock_irqsave) from [<c01917cc>] (update_wall_time+0x20/0x898)
+[    7.309032] [<c01917cc>] (update_wall_time) from [<c019736c>] (tick_periodic+0x7c/0xb8)
+[    7.309808] [<c019736c>] (tick_periodic) from [<c01973e0>] (tick_handle_periodic+0x38/0xac)
+[    7.310617] [<c01973e0>] (tick_handle_periodic) from [<c07a98d8>] (arch_timer_handler_virt+0x38/0x48)
+[    7.311505] [<c07a98d8>] (arch_timer_handler_virt) from [<c017b41c>] (handle_percpu_devid_irq+0xd4/0x1a8)
+[    7.312426] [<c017b41c>] (handle_percpu_devid_irq) from [<c0176cac>] (generic_handle_irq+0x28/0x38)
+[    7.313298] [<c0176cac>] (generic_handle_irq) from [<c0177008>] (__handle_domain_irq+0xb0/0xc4)
+[    7.314137] [<c0177008>] (__handle_domain_irq) from [<c0101474>] (gic_handle_irq+0x60/0xa4)
+[    7.314943] [<c0101474>] (gic_handle_irq) from [<c010d094>] (__irq_svc+0x54/0x70)
+[    7.315661] Exception stack(0xee933e28 to 0xee933e70)
+[    7.316152] 3e20:                   00000001 c10973d8 000000a0 00000020 c1097449 c1097bf4
+[    7.316939] 3e40: 0000001a 00000000 00000032 c0f7199c c0b2c01c ee933ec4 00000052 ee933e78
+[    7.317722] 3e60: c01d299c c01d294c 60000013 ffffffff
+[    7.318221] [<c010d094>] (__irq_svc) from [<c01d294c>] (trace_event_enum_update+0x128/0x2dc)
+[    7.319039] [<c01d294c>] (trace_event_enum_update) from [<c0f11b10>] (tracer_init_tracefs+0xe8/0x1dc)
+[    7.319925] [<c0f11b10>] (tracer_init_tracefs) from [<c0101a48>] (do_one_initcall+0x60/0x1e0)
+[    7.320748] [<c0101a48>] (do_one_initcall) from [<c0f00fb4>] (kernel_init_freeable+0x210/0x260)
+[    7.321588] [<c0f00fb4>] (kernel_init_freeable) from [<c0acda34>] (kernel_init+0x18/0x118)
+[    7.322387] [<c0acda34>] (kernel_init) from [<c0107f50>] (ret_from_fork+0x14/0x24)
+[ 8635.655979] CPU: 3 PID: 0 Comm: swapper/3 Not tainted 4.4.154 #4
+[    7.323119] Sending NMI to all CPUs:
+[ 8635.656905] Hardware name: Generic DT based system
+[ 8635.657380] [<c0110be8>] (unwind_backtrace) from [<c010c6a4>] (show_stack+0x20/0x24)
+[ 8635.658132] [<c010c6a4>] (show_stack) from [<c040bcec>] (dump_stack+0x84/0xa0)
+[ 8635.658834] [<c040bcec>] (dump_stack) from [<c016f530>] (spin_dump+0x8c/0xa0)
+[ 8635.659518] [<c016f530>] (spin_dump) from [<c016f70c>] (do_raw_spin_lock+0x120/0x1a4)
+[ 8635.660276] [<c016f70c>] (do_raw_spin_lock) from [<c0ad2008>] (_raw_spin_lock_irqsave+0x20/0x28)
+[ 8635.661123] [<c0ad2008>] (_raw_spin_lock_irqsave) from [<c01917cc>] (update_wall_time+0x20/0x898)
+[ 8635.661979] [<c01917cc>] (update_wall_time) from [<c019a0c0>] (tick_do_update_jiffies64+0x128/0x15c)
+[ 8635.662859] [<c019a0c0>] (tick_do_update_jiffies64) from [<c019a628>] (tick_irq_enter+0xb0/0xc4)
+[ 8635.663706] [<c019a628>] (tick_irq_enter) from [<c0122cc0>] (irq_enter+0x5c/0x80)
+[ 8635.664436] [<c0122cc0>] (irq_enter) from [<c0176f90>] (__handle_domain_irq+0x38/0xc4)
+[ 8635.665202] [<c0176f90>] (__handle_domain_irq) from [<c0101474>] (gic_handle_irq+0x60/0xa4)
+[ 8635.666007] [<c0101474>] (gic_handle_irq) from [<c010d094>] (__irq_svc+0x54/0x70)
+[ 8635.666725] Exception stack(0xee969f58 to 0xee969fa0)
+[ 8635.667211] 9f40:                                                       00000001 00000000
+[ 8635.667997] 9f60: 00000000 c0119f60 00000000 00000000 c0fad3e8 c10f9300 6000406a c1006d74
+[ 8635.668785] 9f80: 00000000 ee969fb4 ee969fb8 ee969fa8 c0108ab0 c0108aa0 60000013 ffffffff
+[ 8635.669574] [<c010d094>] (__irq_svc) from [<c0108aa0>] (arch_cpu_idle+0x2c/0x48)
+[ 8635.670296] [<c0108aa0>] (arch_cpu_idle) from [<c016885c>] (default_idle_call+0x38/0x3c)
+[ 8635.671080] [<c016885c>] (default_idle_call) from [<c0168b38>] (cpu_startup_entry+0x278/0x344)
+[ 8635.671912] [<c0168b38>] (cpu_startup_entry) from [<c010ebe0>] (secondary_start_kernel+0x130/0x154)
+[ 8635.672779] [<c010ebe0>] (secondary_start_kernel) from [<6010186c>] (0x6010186c)
+[   17.342200] NMI backtrace for cpu 0
+[   17.342544] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.4.154 #4
+[   17.343116] Hardware name: Generic DT based system
+[   17.343576] [<c0110be8>] (unwind_backtrace) from [<c010c6a4>] (show_stack+0x20/0x24)
+[   17.344318] [<c010c6a4>] (show_stack) from [<c040bcec>] (dump_stack+0x84/0xa0)
+[   17.345013] [<c040bcec>] (dump_stack) from [<c04102a8>] (nmi_cpu_backtrace+0xbc/0xd0)
+[   17.345763] [<c04102a8>] (nmi_cpu_backtrace) from [<c010e700>] (raise_nmi+0x60/0x70)
+[   17.346505] [<c010e700>] (raise_nmi) from [<c041008c>] (nmi_trigger_all_cpu_backtrace+0xc4/0x224)
+[   17.347352] [<c041008c>] (nmi_trigger_all_cpu_backtrace) from [<c010f240>] (arch_trigger_all_cpu_backtrace+0x1c/0x24)
+[   17.348359] [<c010f240>] (arch_trigger_all_cpu_backtrace) from [<c016f714>] (do_raw_spin_lock+0x128/0x1a4)
+[   17.349276] [<c016f714>] (do_raw_spin_lock) from [<c0ad2008>] (_raw_spin_lock_irqsave+0x20/0x28)
+[   17.350114] [<c0ad2008>] (_raw_spin_lock_irqsave) from [<c01917cc>] (update_wall_time+0x20/0x898)
+[   17.350958] [<c01917cc>] (update_wall_time) from [<c019736c>] (tick_periodic+0x7c/0xb8)
+[   17.351725] [<c019736c>] (tick_periodic) from [<c01973e0>] (tick_handle_periodic+0x38/0xac)
+[   17.352524] [<c01973e0>] (tick_handle_periodic) from [<c07a98d8>] (arch_timer_handler_virt+0x38/0x48)
+[   17.353401] [<c07a98d8>] (arch_timer_handler_virt) from [<c017b41c>] (handle_percpu_devid_irq+0xd4/0x1a8)
+[   17.354311] [<c017b41c>] (handle_percpu_devid_irq) from [<c0176cac>] (generic_handle_irq+0x28/0x38)
+[   17.355172] [<c0176cac>] (generic_handle_irq) from [<c0177008>] (__handle_domain_irq+0xb0/0xc4)
+[   17.356002] [<c0177008>] (__handle_domain_irq) from [<c0101474>] (gic_handle_irq+0x60/0xa4)
+[   17.356800] [<c0101474>] (gic_handle_irq) from [<c010d094>] (__irq_svc+0x54/0x70)
+[   17.357516] Exception stack(0xee933e28 to 0xee933e70)
+[   17.358001] 3e20:                   00000001 c10973d8 000000a0 00000020 c1097449 c1097bf4
+[   17.358783] 3e40: 0000001a 00000000 00000032 c0f7199c c0b2c01c ee933ec4 00000052 ee933e78
+[   17.359564] 3e60: c01d299c c01d294c 60000013 ffffffff
+[   17.360049] [<c010d094>] (__irq_svc) from [<c01d294c>] (trace_event_enum_update+0x128/0x2dc)
+[   17.360856] [<c01d294c>] (trace_event_enum_update) from [<c0f11b10>] (tracer_init_tracefs+0xe8/0x1dc)
+[   17.361733] [<c0f11b10>] (tracer_init_tracefs) from [<c0101a48>] (do_one_initcall+0x60/0x1e0)
+[   17.362547] [<c0101a48>] (do_one_initcall) from [<c0f00fb4>] (kernel_init_freeable+0x210/0x260)
+[   17.363376] [<c0f00fb4>] (kernel_init_freeable) from [<c0acda34>] (kernel_init+0x18/0x118)
+[   17.364166] [<c0acda34>] (kernel_init) from [<c0107f50>] (ret_from_fork+0x14/0x24)
+[   17.364891] NMI backtrace for cpu 2
+[   17.365232] CPU: 2 PID: 0 Comm: swapper/2 Not tainted 4.4.154 #4
+[   17.365803] Hardware name: Generic DT based system
+[   17.366262] task: ee93c880 task.stack: ee966000
+[   17.366698] PC is at arch_cpu_idle+0x2c/0x48
+[   17.367109] LR is at arch_cpu_idle+0x3c/0x48
+[   17.367522] pc : [<c0108aa0>]    lr : [<c0108ab0>]    psr: 60000013
+[   17.368119] sp : ee967fa8  ip : ee967fb8  fp : ee967fb4
+[   17.368619] r10: 00000000  r9 : c1006d74  r8 : 6000406a
+[   17.369120] r7 : c10f9300  r6 : c0fad3e8  r5 : 00000000  r4 : 00000000
+[   17.369740] r3 : c0119f60  r2 : 00000000  r1 : 00000000  r0 : 00000001
+[   17.370360] Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none
+[   17.371036] Control: 10c5387d  Table: 6000406a  DAC: 00000051
+[   17.371583] 
+[   17.371739] PC: 0xc0108a20:
+[   17.372016] 8a20  e1a00009 eb03857a e2855004 e1550008 1afffff4 e59f0034 eb038575 e1550004
+[   17.372798] 8a40  1affffeb e24bd024 e89dabf0 e51b1028 e1a00006 eb03856e eafffff2 3fffff00
+[   17.373580] 8a60  c0cc7bdb c0cc7d2f c0cc7bcf c0cc7be2 c0d64400 e1a0c00d e92dd800 e24cb004
+[   17.374362] 8a80  e52de004 e8bd4000 e59f3024 e5933000 e3530000 0a000002 e12fff33 f1080080
+[   17.375145] 8aa0  e89da800 e59f300c e5933014 e12fff33 eafffff9 c10f9084 c1006c94 e1a0c00d
+[   17.375926] 8ac0  e92dd800 e24cb004 e52de004 e8bd4000 f1080040 e89da800 e1a0c00d e92dd800
+[   17.376707] 8ae0  e24cb004 e52de004 e8bd4000 e3a00001 eb00587b e89da800 e1a0c00d e92dd800
+[   17.377490] 8b00  e24cb004 e52de004 e8bd4000 e3a00002 eb005873 e89da800 e1a0c00d e92dd8f0
+[   17.378269] 
+[   17.378425] LR: 0xc0108a30:
+[   17.378701] 8a30  1afffff4 e59f0034 eb038575 e1550004 1affffeb e24bd024 e89dabf0 e51b1028
+[   17.379482] 8a50  e1a00006 eb03856e eafffff2 3fffff00 c0cc7bdb c0cc7d2f c0cc7bcf c0cc7be2
+[   17.380264] 8a70  c0d64400 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000 e59f3024 e5933000
+[   17.381045] 8a90  e3530000 0a000002 e12fff33 f1080080 e89da800 e59f300c e5933014 e12fff33
+[   17.381828] 8ab0  eafffff9 c10f9084 c1006c94 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000
+[   17.382611] 8ad0  f1080040 e89da800 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000 e3a00001
+[   17.383394] 8af0  eb00587b e89da800 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000 e3a00002
+[   17.384176] 8b10  eb005873 e89da800 e1a0c00d e92dd8f0 e24cb004 e24dd050 e52de004 e8bd4000
+[   17.384957] 
+[   17.385112] SP: 0xee967f28:
+[   17.385388] 7f28  c010149c c010ee70 c0108aa0 60000013 ffffffff ee967f8c 6000406a c1006d74
+[   17.386169] 7f48  ee967fb4 ee967f58 c010d094 c0101420 00000001 00000000 00000000 c0119f60
+[   17.386951] 7f68  00000000 00000000 c0fad3e8 c10f9300 6000406a c1006d74 00000000 ee967fb4
+[   17.387734] 7f88  ee967fb8 ee967fa8 c0108ab0 c0108aa0 60000013 ffffffff 00000051 c016885c
+[   17.388516] 7fa8  ee967fc4 ee967fb8 c016885c c0108a80 ee967fdc ee967fc8 c0168b38 c0168830
+[   17.389299] 7fc8  00000002 c10f9300 ee967ff4 ee967fe0 c010ebe0 c01688cc 8e94c06a 00000051
+[   17.390081] 7fe8  00000000 ee967ff8 6010186c c010eabc 00000000 00000000 00000000 00000000
+[   17.390862] 8008  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.391641] 
+[   17.391797] IP: 0xee967f38:
+[   17.392073] 7f38  ffffffff ee967f8c 6000406a c1006d74 ee967fb4 ee967f58 c010d094 c0101420
+[   17.392855] 7f58  00000001 00000000 00000000 c0119f60 00000000 00000000 c0fad3e8 c10f9300
+[   17.393637] 7f78  6000406a c1006d74 00000000 ee967fb4 ee967fb8 ee967fa8 c0108ab0 c0108aa0
+[   17.394420] 7f98  60000013 ffffffff 00000051 c016885c ee967fc4 ee967fb8 c016885c c0108a80
+[   17.395201] 7fb8  ee967fdc ee967fc8 c0168b38 c0168830 00000002 c10f9300 ee967ff4 ee967fe0
+[   17.395982] 7fd8  c010ebe0 c01688cc 8e94c06a 00000051 00000000 ee967ff8 6010186c c010eabc
+[   17.396765] 7ff8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.397547] 8018  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.398326] 
+[   17.398480] FP: 0xee967f34:
+[   17.398757] 7f34  60000013 ffffffff ee967f8c 6000406a c1006d74 ee967fb4 ee967f58 c010d094
+[   17.399540] 7f54  c0101420 00000001 00000000 00000000 c0119f60 00000000 00000000 c0fad3e8
+[   17.400323] 7f74  c10f9300 6000406a c1006d74 00000000 ee967fb4 ee967fb8 ee967fa8 c0108ab0
+[   17.401104] 7f94  c0108aa0 60000013 ffffffff 00000051 c016885c ee967fc4 ee967fb8 c016885c
+[   17.401887] 7fb4  c0108a80 ee967fdc ee967fc8 c0168b38 c0168830 00000002 c10f9300 ee967ff4
+[   17.402669] 7fd4  ee967fe0 c010ebe0 c01688cc 8e94c06a 00000051 00000000 ee967ff8 6010186c
+[   17.403451] 7ff4  c010eabc 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.404233] 8014  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.405014] 
+[   17.405168] R3: 0xc0119ee0:
+[   17.405445] 9ee0  e12fff1e e5801000 e3c13e3f e3c33003 e1833002 e3833012 e3110010 13833040
+[   17.406227] 9f00  e2211040 e31100c0 13833c02 e3110c01 13833020 e3110c02 13833001 e3110002
+[   17.407009] 9f20  13110001 12211b02 13110b02 03a03000 e5a03800 e320f000 e12fff1e 2120c302
+[   17.407791] 9f40  10c03c7d e12fff1e ee110f10 e3
+DDR Version V1.06 20171026
+In
+300MHz
+DDR3
+Bus Width=16 Col=11 Bank=8 Row=16 CS=1 Die Bus-Width=16 Size=2048MB
+mach:3
+OUT
+Boot1 Release Time: Feb  2 2018 15:48:13, version: 2.38
+ChipType = 0xc, 341
+No.1 FLASH ID:1f ff ff ff ff ff
+SdmmcInit=2 0
+BootCapSize=1000
+UserCapSize=14910MB
+FwPartOffset=2000 , 1000
+SdmmcInit=0 0
+BootCapSize=0
+UserCapSize=15193MB
+FwPartOffset=2000 , 0
+StorageInit ok = 298226
+SecureMode = 0
+LOADER Check OK! 0x61000000, 367437
+TOS    Check OK! 0x68400000, 400170
+Enter Trust OS
+INF TEE-CORE:init_primary_helper:319: Initializing (1.0.1-79-g2825a12 #2 2018年 06月 13日 星期三 02:15:50 UTC arm)
+INF TEE-CORE:init_primary_helper:320: Release version: 1.9
+INF TEE-CORE:init_teecore:79: teecore inits done
+
+
+U-Boot 2017.09-gb34cbcd-dirty (Nov 11 2018 - 10:32:56 +0530)
+
+Model: Rockchip RK3229 Evaluation board
+DRAM:  2 GiB
+Relocation Offset is: 7ef18000
+GV arch/arm/mach-rockchip/board board_init
+MMC:   dwmmc@30000000: 1, dwmmc@30020000: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial@11030000
+Out:   serial@11030000
+Err:   serial@11030000
+Model: Rockchip RK3229 Evaluation board
+GV processing command : run rkimg_bootdev 
+GV processing command : mmc dev 1 
+switch to partitions #0, OK
+mmc1 is current device
+GV processing command : rkimgtest mmc 1 
+Unknown command 'rkimgtest' - try 'help'
+GV processing command : mmc dev 0 
+switch to partitions #0, OK
+mmc0(part 0) is current device
+GV processing command : setenv devtype mmc 
+GV processing command : setenv devnum 0 
+rockchip_dnl_key_pressed adc_channel_single_shot fail! ret=-19
+get part misc fail -1
+CLK:      apll           600000000 Hz
+          dpll           600000000 Hz
+          cpll           500000000 Hz
+          gpll          1200000000 Hz
+        armclk           600000000 Hz
+      aclk_bus           150000000 Hz
+      hclk_bus            75000000 Hz
+      pclk_bus            75000000 Hz
+     aclk_peri           150000000 Hz
+     hclk_peri            75000000 Hz
+     pclk_peri            75000000 Hz
+Net:   
+Warning: ethernet@30200000 (eth0) using random MAC address - 6e:f3:92:70:57:27
+eth0: ethernet@30200000
+Hit any key to stop autoboot:  0 
+GV processing command : boot_android mmc 0 
+android_bootloader_boot_flow Could not find misc partition
+MMC: block number 0xb7e5914e exceeds max(0x1d1f000)
+failed to read ca head from misc
+get part misc fail -1
+ANDROID: reboot reason: "(none)"
+android_bootloader_boot_flow Could not found bootable partition boot
+Android boot failed, error -1.
+GV processing command : bootrkp 
+Unknown command 'bootrkp' - try 'help'
+GV processing command : run distro_bootcmd 
+GV : command : target=mmc1 
+GV processing command : run bootcmd_mmc1 
+GV processing command : setenv devnum 1 
+GV processing command : run mmc_boot 
+GV processing command : mmc dev 1 
+switch to partitions #0, OK
+mmc1 is current device
+GV processing command : setenv devtype mmc 
+GV processing command : run scan_dev_for_boot_part 
+GV processing command : part list mmc 1 -bootable devplist 
+GV processing command : env exists devplist 
+GV processing command : setenv devplist 1 
+GV : command : distro_bootpart=1 
+GV processing command : fstype mmc 1:1 bootfstype 
+GV processing command : run scan_dev_for_boot 
+GV processing command : echo Scanning mmc 1:1... 
+Scanning mmc 1:1...
+GV : command : prefix=/ 
+GV processing command : run scan_dev_for_extlinux 
+GV processing command : test -e mmc 1:1 /extlinux/extlinux.conf 
+GV processing command : echo Found /extlinux/extlinux.conf 
+Found /extlinux/extlinux.conf
+GV processing command : run boot_extlinux 
+GV processing command : sysboot mmc 1:1 any 0x60000000 /extlinux/extlinux.conf 
+Retrieving file: /extlinux/extlinux.conf
+272 bytes read in 7 ms (37.1 KiB/s)
+1:	kernel-4.4
+Retrieving file: /zImage.smp
+7115312 bytes read in 327 ms (20.8 MiB/s)
+append: dyndbg="init/initramfs.c +p" earlycon=uart8250,mmio32,0x11030000 console=ttyS2,1500000n8 console=tty0 console=uart0 rw root=/dev/mmcblk0p1 rootfstype=ext4 storagetype=mmc init=/sbin/init rootwait 
+Retrieving file: /rk3229-evb.dtb
+36493 bytes read in 8 ms (4.3 MiB/s)
+## Flattened Device Tree blob at 61f00000
+   Booting using the fdt blob at 0x61f00000
+  'reserved-memory' ramoops@62e00000: addr=62e00000 size=f0000
+  'reserved-memory' trust@0x68400000: addr=68400000 size=e00000
+   Loading Device Tree to 7fff4000, end 7ffffe8c ... OK
+Adding bank: start=0x60000000, size=0x08400000
+Adding bank: start=0x68500000, size=0x77b00000
+
+Starting kernel ...
+
+
+[    0.000000] Booting Linux on physical CPU 0xf00
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 4.4.154 (george@manga) (gcc version 6.3.1 20170404 (Linaro GCC 6.3-2017.05) ) #4 SMP Sat Dec 1 10:36:49 IST 2018
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine model: Rockchip RK3229 Evaluation board
+[    0.000000] earlycon: Early serial console at MMIO32 0x11030000 (options '')
+[    0.000000] bootconsole [uart0] enabled
+[    0.000000] Reserved memory: failed to reserve memory for node 'drm-logo@00000000': base 0x00000000, size 0 MiB
+[    0.000000] Reserved memory: failed to reserve memory for node 'secure-memory@80000000': base 0x80000000, size 0 MiB
+[    0.000000] cma: Reserved 16 MiB at 0xdf000000
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv65535.65535 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] PERCPU: Embedded 14 pages/cpu @eef92000 s24664 r8192 d24488 u57344
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 519168
+[    0.000000] Kernel command line: dyndbg="init/initramfs.c +p" earlycon=uart8250,mmio32,0x11030000 console=ttyS2,1500000n8 console=tty0 console=uart0 rw root=/dev/mmcblk0p1 rootfstype=ext4 storagetype=mmc init=/sbin/init rootwait 
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 2030976K/2082816K available (10240K kernel code, 988K rwdata, 3068K rodata, 1024K init, 579K bss, 35456K reserved, 16384K cma-reserved, 1294336K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0b00000   (11232 kB)
+[    0.000000]       .init : 0xc0f00000 - 0xc1000000   (1024 kB)
+[    0.000000]       .data : 0xc1000000 - 0xc10f72d4   ( 989 kB)
+[    0.000000]        .bss : 0xc10f9000 - 0xc1189c30   ( 580 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	Build-time adjustment of leaf fanout to 32.
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] Architected cp15 timer(s) running at 24.00MHz (virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000008] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000730] Switching to timer-based delay loop, resolution 41ns
+[    0.003058] Console: colour dummy device 80x30
+[    0.004626] console [tty0] enabled
+[    0.004986] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+[    0.005961] pid_max: default: 32768 minimum: 301
+[    0.006520] Security Framework initialized
+[    0.006916] Yama: becoming mindful.
+[    0.007328] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.007954] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.009799] Initializing cgroup subsys devices
+[    0.010263] Initializing cgroup subsys freezer
+[    0.010720] CPU: Testing write buffer coherency: ok
+[    0.011235] ftrace: allocating 38881 entries in 115 pages
+[    0.089420] /cpus/cpu@f00 missing clock-frequency property
+[    0.089993] /cpus/cpu@f01 missing clock-frequency property
+[    0.090528] /cpus/cpu@f02 missing clock-frequency property
+[    0.091062] /cpus/cpu@f03 missing clock-frequency property
+[    0.091590] CPU0: update cpu_capacity 430
+[    0.091979] CPU0: thread -1, cpu 0, socket 15, mpidr 80000f00
+[    0.092631] Setting up static identity map for 0x60100000 - 0x60100058
+[    0.100805] dynamic_debug:ddebug_parse_query: expecting pairs of match-spec <value>
+[    0.101571] dynamic_debug:ddebug_exec_query: query parse failed
+[ 5371.959557] CPU1: update cpu_capacity 430
+[ 5371.959568] CPU1: thread -1, cpu 1, socket 15, mpidr 80000f01
+[   95.475446] CPU2: update cpu_capacity 430
+[   95.475454] CPU2: thread -1, cpu 2, socket 15, mpidr 80000f02
+[ 5695.831536] CPU3: update cpu_capacity 430
+[ 5695.831544] CPU3: thread -1, cpu 3, socket 15, mpidr 80000f03
+[    0.106195] Brought up 4 CPUs
+[    0.109597] SMP: Total of 4 processors activated (192.00 BogoMIPS).
+[    0.110192] CPU: All CPU(s) started in SVC mode.
+[    0.112371] devtmpfs: initialized
+[    0.129351] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.130759] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.131738] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.134015] pinctrl core: initialized pinctrl subsystem
+[    0.136588] NET: Registered protocol family 16
+[    0.139043] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.169883] cpuidle: using governor ladder
+[    0.199908] cpuidle: using governor menu
+[    0.222688] console [pstore-1] enabled
+[    0.223074] pstore: Registered ramoops as persistent store backend
+[    0.223666] ramoops: attached 0xf0000@0x62e00000, ecc: 0/0
+DDR Version V1.06 20171026
+In
+300MHz
+DDR3
+Bus Width=16 Col=11 Bank=8 Row=16 CS=1 Die Bus-Width=16 Size=2048MB
+mach:3
+OUT
+Boot1 Release Time: Feb  2 2018 15:48:13, version: 2.38
+ChipType = 0xc, 340
+SdmmcInit=2 0
+BootCapSize=1000
+UserCapSize=14910MB
+FwPartOffset=2000 , 1000
+SdmmcInit=0 0
+BootCapSize=0
+UserCapSize=15193MB
+FwPartOffset=2000 , 0
+StorageInit ok = 298087
+SecureMode = 0
+LOADER Check OK! 0x61000000, 367299
+TOS    Check OK! 0x68400000, 400029
+Enter Trust OS
+INF TEE-CORE:init_primary_helper:319: Initializing (1.0.1-79-g2825a12 #2 2018年 06月 13日 星期三 02:15:50 UTC arm)
+INF TEE-CORE:init_primary_helper:320: Release version: 1.9
+INF TEE-CORE:init_teecore:79: teecore inits done
+
+
+U-Boot 2017.09-gb34cbcd-dirty (Nov 11 2018 - 10:32:56 +0530)
+
+Model: Rockchip RK3229 Evaluation board
+DRAM:  2 GiB
+Relocation Offset is: 7ef18000
+GV arch/arm/mach-rockchip/board board_init
+MMC:   dwmmc@30000000: 1, dwmmc@30020000: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial@11030000
+Out:   serial@11030000
+Err:   serial@11030000
+Model: Rockchip RK3229 Evaluation board
+GV processing command : run rkimg_bootdev 
+GV processing command : mmc dev 1 
+switch to partitions #0, OK
+mmc1 is current device
+GV processing command : rkimgtest mmc 1 
+Unknown command 'rkimgtest' - try 'help'
+GV processing command : mmc dev 0 
+switch to partitions #0, OK
+mmc0(part 0) is current device
+GV processing command : setenv devtype mmc 
+GV processing command : setenv devnum 0 
+rockchip_dnl_key_pressed adc_channel_single_shot fail! ret=-19
+get part misc fail -1
+CLK:      apll           600000000 Hz
+          dpll           600000000 Hz
+          cpll           500000000 Hz
+          gpll          1200000000 Hz
+        armclk           600000000 Hz
+      aclk_bus           150000000 Hz
+      hclk_bus            75000000 Hz
+      pclk_bus            75000000 Hz
+     aclk_peri           150000000 Hz
+     hclk_peri            75000000 Hz
+     pclk_peri            75000000 Hz
+Net:   
+Warning: ethernet@30200000 (eth0) using random MAC address - aa:f5:14:7a:79:63
+eth0: ethernet@30200000
+Hit any key to stop autoboot:  0 
+GV processing command : boot_android mmc 0 
+android_bootloader_boot_flow Could not find misc partition
+MMC: block number 0xb7e5914e exceeds max(0x1d1f000)
+failed to read ca head from misc
+get part misc fail -1
+ANDROID: reboot reason: "(none)"
+android_bootloader_boot_flow Could not found bootable partition boot
+Android boot failed, error -1.
+GV processing command : bootrkp 
+Unknown command 'bootrkp' - try 'help'
+GV processing command : run distro_bootcmd 
+GV : command : target=mmc1 
+GV processing command : run bootcmd_mmc1 
+GV processing command : setenv devnum 1 
+GV processing command : run mmc_boot 
+GV processing command : mmc dev 1 
+switch to partitions #0, OK
+mmc1 is current device
+GV processing command : setenv devtype mmc 
+GV processing command : run scan_dev_for_boot_part 
+GV processing command : part list mmc 1 -bootable devplist 
+GV processing command : env exists devplist 
+GV processing command : setenv devplist 1 
+GV : command : distro_bootpart=1 
+GV processing command : fstype mmc 1:1 bootfstype 
+GV processing command : run scan_dev_for_boot 
+GV processing command : echo Scanning mmc 1:1... 
+Scanning mmc 1:1...
+GV : command : prefix=/ 
+GV processing command : run scan_dev_for_extlinux 
+GV processing command : test -e mmc 1:1 /extlinux/extlinux.conf 
+GV processing command : echo Found /extlinux/extlinux.conf 
+Found /extlinux/extlinux.conf
+GV processing command : run boot_extlinux 
+GV processing command : sysboot mmc 1:1 any 0x60000000 /extlinux/extlinux.conf 
+Retrieving file: /extlinux/extlinux.conf
+272 bytes read in 8 ms (33.2 KiB/s)
+1:	kernel-4.4
+Retrieving file: /zImage.smp
+7115312 bytes read in 327 ms (20.8 MiB/s)
+append: dyndbg="init/initramfs.c +p" earlycon=uart8250,mmio32,0x11030000 console=ttyS2,1500000n8 console=tty0 console=uart0 rw root=/dev/mmcblk0p1 rootfstype=ext4 storagetype=mmc init=/sbin/init rootwait 
+Retrieving file: /rk3229-evb.dtb
+36493 bytes read in 7 ms (5 MiB/s)
+## Flattened Device Tree blob at 61f00000
+   Booting using the fdt blob at 0x61f00000
+  'reserved-memory' ramoops@62e00000: addr=62e00000 size=f0000
+  'reserved-memory' trust@0x68400000: addr=68400000 size=e00000
+   Loading Device Tree to 7fff4000, end 7ffffe8c ... OK
+Adding bank: start=0x60000000, size=0x08400000
+Adding bank: start=0x68500000, size=0x77b00000
+
+Starting kernel ...
+
+
+[    0.000000] Booting Linux on physical CPU 0xf00
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 4.4.154 (george@manga) (gcc version 6.3.1 20170404 (Linaro GCC 6.3-2017.05) ) #4 SMP Sat Dec 1 10:36:49 IST 2018
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine model: Rockchip RK3229 Evaluation board
+[    0.000000] earlycon: Early serial console at MMIO32 0x11030000 (options '')
+[    0.000000] bootconsole [uart0] enabled
+[    0.000000] Reserved memory: failed to reserve memory for node 'drm-logo@00000000': base 0x00000000, size 0 MiB
+[    0.000000] Reserved memory: failed to reserve memory for node 'secure-memory@80000000': base 0x80000000, size 0 MiB
+[    0.000000] cma: Reserved 16 MiB at 0xdf000000
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv65535.65535 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] PERCPU: Embedded 14 pages/cpu @eef92000 s24664 r8192 d24488 u57344
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 519168
+[    0.000000] Kernel command line: dyndbg="init/initramfs.c +p" earlycon=uart8250,mmio32,0x11030000 console=ttyS2,1500000n8 console=tty0 console=uart0 rw root=/dev/mmcblk0p1 rootfstype=ext4 storagetype=mmc init=/sbin/init rootwait 
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 2030976K/2082816K available (10240K kernel code, 988K rwdata, 3068K rodata, 1024K init, 579K bss, 35456K reserved, 16384K cma-reserved, 1294336K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0b00000   (11232 kB)
+[    0.000000]       .init : 0xc0f00000 - 0xc1000000   (1024 kB)
+[    0.000000]       .data : 0xc1000000 - 0xc10f72d4   ( 989 kB)
+[    0.000000]        .bss : 0xc10f9000 - 0xc1189c30   ( 580 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	Build-time adjustment of leaf fanout to 32.
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] Architected cp15 timer(s) running at 24.00MHz (virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000009] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000731] Switching to timer-based delay loop, resolution 41ns
+[    0.003060] Console: colour dummy device 80x30
+[    0.004631] console [tty0] enabled
+[    0.004988] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+[    0.005965] pid_max: default: 32768 minimum: 301
+[    0.006519] Security Framework initialized
+[    0.006913] Yama: becoming mindful.
+[    0.007325] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.007948] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.009793] Initializing cgroup subsys devices
+[    0.010257] Initializing cgroup subsys freezer
+[    0.010715] CPU: Testing write buffer coherency: ok
+[    0.011232] ftrace: allocating 38881 entries in 115 pages
+[    0.089417] /cpus/cpu@f00 missing clock-frequency property
+[    0.089991] /cpus/cpu@f01 missing clock-frequency property
+[    0.090527] /cpus/cpu@f02 missing clock-frequency property
+[    0.091062] /cpus/cpu@f03 missing clock-frequency property
+[    0.091590] CPU0: update cpu_capacity 430
+[    0.091977] CPU0: thread -1, cpu 0, socket 15, mpidr 80000f00
+[    0.092634] Setting up static identity map for 0x60100000 - 0x60100058
+[    0.100790] dynamic_debug:ddebug_parse_query: expecting pairs of match-spec <value>
+[    0.101557] dynamic_debug:ddebug_exec_query: query parse failed
+[ 4205.871576] CPU1: update cpu_capacity 430
+[ 4205.871587] CPU1: thread -1, cpu 1, socket 15, mpidr 80000f01
+[  809.166766] CPU2: update cpu_capacity 430
+[  809.166775] CPU2: thread -1, cpu 2, socket 15, mpidr 80000f02
+[ 5690.204126] CPU3: update cpu_capacity 430
+[ 5690.204134] CPU3: thread -1, cpu 3, socket 15, mpidr 80000f03
+[    0.106183] Brought up 4 CPUs
+[    0.109584] SMP: Total of 4 processors activated (192.00 BogoMIPS).
+[    0.110179] CPU: All CPU(s) started in SVC mode.
+[    0.112369] devtmpfs: initialized
+[    0.129447] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.130780] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.131764] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.134065] pinctrl core: initialized pinctrl subsystem
+[    0.136621] NET: Registered protocol family 16
+[    0.139101] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.169942] cpuidle: using governor ladder
+[    0.199967] cpuidle: using governor menu
+[    0.222686] console [pstore-1] enabled
+[    0.223070] pstore: Registered ramoops as persistent store backend
+[    0.223661] ramoops: attached 0xf0000@0x62e00000, ecc: 0/0
+[    0.227296] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.228083] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.228885] sip_firmware_init: set rockchip sip version v2 failed
+[    0.276465] iommu: Adding device 20050000.vop to group 0
+[    0.278441] SCSI subsystem initialized
+[    0.279242] usbcore: registered new interface driver usbfs
+[    0.279865] usbcore: registered new interface driver hub
+[    0.280621] usbcore: registered new device driver usb
+[    0.281325] media: Linux media interface: v0.10
+[    0.281854] Linux video capture interface: v2.00
+[    0.282360] pps_core: LinuxPPS API ver. 1 registered
+[    0.282840] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.283744] PTP clock support registered
+[    0.286302] Advanced Linux Sound Architecture Driver Initialized.
+[    0.288026] Bluetooth: Core ver 2.21
+[    0.288458] NET: Registered protocol family 31
+[    0.288890] Bluetooth: HCI device and connection manager initialized
+[    0.289510] Bluetooth: HCI socket layer initialized
+[    0.290000] Bluetooth: L2CAP socket layer initialized
+[    0.290615] Bluetooth: SCO socket layer initialized
+[    0.293640] clocksource: Switched to clocksource arch_sys_counter
+[    7.300556] BUG: spinlock lockup suspected on CPU#0, swapper/0/1
+[    7.301157]  lock: 0xc1015d80, .magic: dead4ead, .owner: swapper/1/0, .owner_cpu: 1
+[    7.301901] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.4.154 #4
+[    7.302475] Hardware name: Generic DT based system
+[    7.302974] [<c0110be8>] (unwind_backtrace) from [<c010c6a4>] (show_stack+0x20/0x24)
+[    7.303732] [<c010c6a4>] (show_stack) from [<c040bcec>] (dump_stack+0x84/0xa0)
+[    7.304441] [<c040bcec>] (dump_stack) from [<c016f530>] (spin_dump+0x8c/0xa0)
+[    7.305129] [<c016f530>] (spin_dump) from [<c016f70c>] (do_raw_spin_lock+0x120/0x1a4)
+[    7.305891] [<c016f70c>] (do_raw_spin_lock) from [<c0ad2008>] (_raw_spin_lock_irqsave+0x20/0x28)
+[    7.306744] [<c0ad2008>] (_raw_spin_lock_irqsave) from [<c01917cc>] (update_wall_time+0x20/0x898)
+[    7.307604] [<c01917cc>] (update_wall_time) from [<c019736c>] (tick_periodic+0x7c/0xb8)
+[    7.308384] [<c019736c>] (tick_periodic) from [<c01973e0>] (tick_handle_periodic+0x38/0xac)
+[    7.309197] [<c01973e0>] (tick_handle_periodic) from [<c07a98d8>] (arch_timer_handler_virt+0x38/0x48)
+[    7.310090] [<c07a98d8>] (arch_timer_handler_virt) from [<c017b41c>] (handle_percpu_devid_irq+0xd4/0x1a8)
+[    7.311015] [<c017b41c>] (handle_percpu_devid_irq) from [<c0176cac>] (generic_handle_irq+0x28/0x38)
+[    7.311889] [<c0176cac>] (generic_handle_irq) from [<c0177008>] (__handle_domain_irq+0xb0/0xc4)
+[    7.312733] [<c0177008>] (__handle_domain_irq) from [<c0101474>] (gic_handle_irq+0x60/0xa4)
+[    7.313541] [<c0101474>] (gic_handle_irq) from [<c010d094>] (__irq_svc+0x54/0x70)
+[    7.314262] Exception stack(0xee933e28 to 0xee933e70)
+[    7.314754] 3e20:                   00000001 c1097866 00000001 00000043 c1097867 c1097bf4
+[    7.315545] 3e40: 00000015 00000000 00000031 c0f71990 c0b2c01c ee933ec4 00000052 ee933e78
+[    7.316331] 3e60: c01d299c c01d2a88 20000013 ffffffff
+[    7.316831] [<c010d094>] (__irq_svc) from [<c01d2a88>] (trace_event_enum_update+0x264/0x2dc)
+[    7.317651] [<c01d2a88>] (trace_event_enum_update) from [<c0f11b10>] (tracer_init_tracefs+0xe8/0x1dc)
+[    7.318541] [<c0f11b10>] (tracer_init_tracefs) from [<c0101a48>] (do_one_initcall+0x60/0x1e0)
+[    7.319367] [<c0101a48>] (do_one_initcall) from [<c0f00fb4>] (kernel_init_freeable+0x210/0x260)
+[    7.320210] [<c0f00fb4>] (kernel_init_freeable) from [<c0acda34>] (kernel_init+0x18/0x118)
+[    7.321011] [<c0acda34>] (kernel_init) from [<c0107f50>] (ret_from_fork+0x14/0x24)
+[    7.321741] Sending NMI to all CPUs:
+[   17.323676] NMI backtrace for cpu 0
+[   17.324024] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 4.4.154 #4
+[   17.324596] Hardware name: Generic DT based system
+[   17.325057] [<c0110be8>] (unwind_backtrace) from [<c010c6a4>] (show_stack+0x20/0x24)
+[   17.325799] [<c010c6a4>] (show_stack) from [<c040bcec>] (dump_stack+0x84/0xa0)
+[   17.326493] [<c040bcec>] (dump_stack) from [<c04102a8>] (nmi_cpu_backtrace+0xbc/0xd0)
+[   17.327243] [<c04102a8>] (nmi_cpu_backtrace) from [<c010e700>] (raise_nmi+0x60/0x70)
+[   17.327986] [<c010e700>] (raise_nmi) from [<c041008c>] (nmi_trigger_all_cpu_backtrace+0xc4/0x224)
+[   17.328832] [<c041008c>] (nmi_trigger_all_cpu_backtrace) from [<c010f240>] (arch_trigger_all_cpu_backtrace+0x1c/0x24)
+[   17.329839] [<c010f240>] (arch_trigger_all_cpu_backtrace) from [<c016f714>] (do_raw_spin_lock+0x128/0x1a4)
+[   17.330757] [<c016f714>] (do_raw_spin_lock) from [<c0ad2008>] (_raw_spin_lock_irqsave+0x20/0x28)
+[   17.331594] [<c0ad2008>] (_raw_spin_lock_irqsave) from [<c01917cc>] (update_wall_time+0x20/0x898)
+[   17.332440] [<c01917cc>] (update_wall_time) from [<c019736c>] (tick_periodic+0x7c/0xb8)
+[   17.333207] [<c019736c>] (tick_periodic) from [<c01973e0>] (tick_handle_periodic+0x38/0xac)
+[   17.334006] [<c01973e0>] (tick_handle_periodic) from [<c07a98d8>] (arch_timer_handler_virt+0x38/0x48)
+[   17.334885] [<c07a98d8>] (arch_timer_handler_virt) from [<c017b41c>] (handle_percpu_devid_irq+0xd4/0x1a8)
+[   17.335795] [<c017b41c>] (handle_percpu_devid_irq) from [<c0176cac>] (generic_handle_irq+0x28/0x38)
+[   17.336656] [<c0176cac>] (generic_handle_irq) from [<c0177008>] (__handle_domain_irq+0xb0/0xc4)
+[   17.337485] [<c0177008>] (__handle_domain_irq) from [<c0101474>] (gic_handle_irq+0x60/0xa4)
+[   17.338282] [<c0101474>] (gic_handle_irq) from [<c010d094>] (__irq_svc+0x54/0x70)
+[   17.338999] Exception stack(0xee933e28 to 0xee933e70)
+[   17.339484] 3e20:                   00000001 c1097866 00000001 00000043 c1097867 c1097bf4
+[   17.340266] 3e40: 00000015 00000000 00000031 c0f71990 c0b2c01c ee933ec4 00000052 ee933e78
+[   17.341047] 3e60: c01d299c c01d2a88 20000013 ffffffff
+[   17.341532] [<c010d094>] (__irq_svc) from [<c01d2a88>] (trace_event_enum_update+0x264/0x2dc)
+[   17.342338] [<c01d2a88>] (trace_event_enum_update) from [<c0f11b10>] (tracer_init_tracefs+0xe8/0x1dc)
+[   17.343215] [<c0f11b10>] (tracer_init_tracefs) from [<c0101a48>] (do_one_initcall+0x60/0x1e0)
+[   17.344030] [<c0101a48>] (do_one_initcall) from [<c0f00fb4>] (kernel_init_freeable+0x210/0x260)
+[   17.344860] [<c0f00fb4>] (kernel_init_freeable) from [<c0acda34>] (kernel_init+0x18/0x118)
+[   17.345649] [<c0acda34>] (kernel_init) from [<c0107f50>] (ret_from_fork+0x14/0x24)
+[   17.346374] NMI backtrace for cpu 2
+[   17.346715] CPU: 2 PID: 0 Comm: swapper/2 Not tainted 4.4.154 #4
+[   17.347286] Hardware name: Generic DT based system
+[   17.347746] task: ee93c880 task.stack: ee966000
+[   17.348181] PC is at arch_cpu_idle+0x2c/0x48
+[   17.348593] LR is at arch_cpu_idle+0x3c/0x48
+[   17.349007] pc : [<c0108aa0>]    lr : [<c0108ab0>]    psr: 60000013
+[   17.349603] sp : ee967fa8  ip : ee967fb8  fp : ee967fb4
+[   17.350104] r10: 00000000  r9 : c1006d74  r8 : 6000406a
+[   17.350604] r7 : c10f9300  r6 : c0fad3e8  r5 : 00000000  r4 : 00000000
+[   17.351223] r3 : c0119f60  r2 : 00000000  r1 : 00000000  r0 : 00000001
+[   17.351844] Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none
+[   17.352521] Control: 10c5387d  Table: 6000406a  DAC: 00000051
+[   17.353068] 
+[   17.353223] PC: 0xc0108a20:
+[   17.353501] 8a20  e1a00009 eb03857a e2855004 e1550008 1afffff4 e59f0034 eb038575 e1550004
+[   17.354281] 8a40  1affffeb e24bd024 e89dabf0 e51b1028 e1a00006 eb03856e eafffff2 3fffff00
+[   17.355064] 8a60  c0cc7bdb c0cc7d2f c0cc7bcf c0cc7be2 c0d64400 e1a0c00d e92dd800 e24cb004
+[   17.355845] 8a80  e52de004 e8bd4000 e59f3024 e5933000 e3530000 0a000002 e12fff33 f1080080
+[   17.356627] 8aa0  e89da800 e59f300c e5933014 e12fff33 eafffff9 c10f9084 c1006c94 e1a0c00d
+[   17.357408] 8ac0  e92dd800 e24cb004 e52de004 e8bd4000 f1080040 e89da800 e1a0c00d e92dd800
+[   17.358189] 8ae0  e24cb004 e52de004 e8bd4000 e3a00001 eb00587b e89da800 e1a0c00d e92dd800
+[   17.358972] 8b00  e24cb004 e52de004 e8bd4000 e3a00002 eb005873 e89da800 e1a0c00d e92dd8f0
+[   17.359752] 
+[   17.359907] LR: 0xc0108a30:
+[   17.360183] 8a30  1afffff4 e59f0034 eb038575 e1550004 1affffeb e24bd024 e89dabf0 e51b1028
+[   17.360965] 8a50  e1a00006 eb03856e eafffff2 3fffff00 c0cc7bdb c0cc7d2f c0cc7bcf c0cc7be2
+[   17.361747] 8a70  c0d64400 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000 e59f3024 e5933000
+[   17.362528] 8a90  e3530000 0a000002 e12fff33 f1080080 e89da800 e59f300c e5933014 e12fff33
+[   17.363310] 8ab0  eafffff9 c10f9084 c1006c94 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000
+[   17.364092] 8ad0  f1080040 e89da800 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000 e3a00001
+[   17.364873] 8af0  eb00587b e89da800 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000 e3a00002
+[   17.365655] 8b10  eb005873 e89da800 e1a0c00d e92dd8f0 e24cb004 e24dd050 e52de004 e8bd4000
+[   17.366434] 
+[   17.366589] SP: 0xee967f28:
+[   17.366866] 7f28  c010149c c010ee70 c0108aa0 60000013 ffffffff ee967f8c 6000406a c1006d74
+[   17.367648] 7f48  ee967fb4 ee967f58 c010d094 c0101420 00000001 00000000 00000000 c0119f60
+[   17.368429] 7f68  00000000 00000000 c0fad3e8 c10f9300 6000406a c1006d74 00000000 ee967fb4
+[   17.369212] 7f88  ee967fb8 ee967fa8 c0108ab0 c0108aa0 60000013 ffffffff 00000051 c016885c
+[   17.369993] 7fa8  ee967fc4 ee967fb8 c016885c c0108a80 ee967fdc ee967fc8 c0168b38 c0168830
+[   17.370774] 7fc8  00000002 c10f9300 ee967ff4 ee967fe0 c010ebe0 c01688cc 8e94c06a 00000051
+[   17.371556] 7fe8  00000000 ee967ff8 6010186c c010eabc 00000000 00000000 00000000 00000000
+[   17.372338] 8008  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.373117] 
+[   17.373272] IP: 0xee967f38:
+[   17.373549] 7f38  ffffffff ee967f8c 6000406a c1006d74 ee967fb4 ee967f58 c010d094 c0101420
+[   17.374331] 7f58  00000001 00000000 00000000 c0119f60 00000000 00000000 c0fad3e8 c10f9300
+[   17.375113] 7f78  6000406a c1006d74 00000000 ee967fb4 ee967fb8 ee967fa8 c0108ab0 c0108aa0
+[   17.375894] 7f98  60000013 ffffffff 00000051 c016885c ee967fc4 ee967fb8 c016885c c0108a80
+[   17.376676] 7fb8  ee967fdc ee967fc8 c0168b38 c0168830 00000002 c10f9300 ee967ff4 ee967fe0
+[   17.377457] 7fd8  c010ebe0 c01688cc 8e94c06a 00000051 00000000 ee967ff8 6010186c c010eabc
+[   17.378239] 7ff8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.379021] 8018  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.379800] 
+[   17.379956] FP: 0xee967f34:
+[   17.380233] 7f34  60000013 ffffffff ee967f8c 6000406a c1006d74 ee967fb4 ee967f58 c010d094
+[   17.381014] 7f54  c0101420 00000001 00000000 00000000 c0119f60 00000000 00000000 c0fad3e8
+[   17.381796] 7f74  c10f9300 6000406a c1006d74 00000000 ee967fb4 ee967fb8 ee967fa8 c0108ab0
+[   17.382579] 7f94  c0108aa0 60000013 ffffffff 00000051 c016885c ee967fc4 ee967fb8 c016885c
+[   17.383360] 7fb4  c0108a80 ee967fdc ee967fc8 c0168b38 c0168830 00000002 c10f9300 ee967ff4
+[   17.384142] 7fd4  ee967fe0 c010ebe0 c01688cc 8e94c06a 00000051 00000000 ee967ff8 6010186c
+[   17.384923] 7ff4  c010eabc 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.385704] 8014  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.386483] 
+[   17.386639] R3: 0xc0119ee0:
+[   17.386916] 9ee0  e12fff1e e5801000 e3c13e3f e3c33003 e1833002 e3833012 e3110010 13833040
+[   17.387697] 9f00  e2211040 e31100c0 13833c02 e3110c01 13833020 e3110c02 13833001 e3110002
+[   17.388478] 9f20  13110001 12211b02 13110b02 03a03000 e5a03800 e320f000 e12fff1e 2120c302
+[   17.389259] 9f40  10c03c7d e12fff1e ee110f10 e3
+[   17.389700] NMI backtrace for cpu 3
+[   17.390041] CPU: 3 PID: 0 Comm: swapper/3 Not tainted 4.4.154 #4
+[   17.390613] Hardware name: Generic DT based system
+[   17.391074] task: ee93cfc0 task.stack: ee968000
+[   17.391508] PC is at arch_cpu_idle+0x2c/0x48
+[   17.391920] LR is at arch_cpu_idle+0x3c/0x48
+[   17.392332] pc : [<c0108aa0>]    lr : [<c0108ab0>]    psr: 60000013
+[   17.392927] sp : ee969fa8  ip : ee969fb8  fp : ee969fb4
+[   17.393428] r10: 00000000  r9 : c1006d74  r8 : 6000406a
+[   17.393927] r7 : c10f9300  r6 : c0fad3e8  r5 : 00000000  r4 : 00000000
+[   17.394546] r3 : c0119f60  r2 : 00000000  r1 : 00000000  r0 : 00000001
+[   17.395166] Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none
+[   17.395841] Control: 10c5387d  Table: 6000406a  DAC: 00000051
+[   17.396388] 
+[   17.396544] PC: 0xc0108a20:
+[   17.396821] 8a20  e1a00009 eb03857a e2855004 e1550008 1afffff4 e59f0034 eb038575 e1550004
+[   17.397603] 8a40  1affffeb e24bd024 e89dabf0 e51b1028 e1a00006 eb03856e eafffff2 3fffff00
+[   17.398385] 8a60  c0cc7bdb c0cc7d2f c0cc7bcf c0cc7be2 c0d64400 e1a0c00d e92dd800 e24cb004
+[   17.399168] 8a80  e52de004 e8bd4000 e59f3024 e5933000 e3530000 0a000002 e12fff33 f1080080
+[   17.399949] 8aa0  e89da800 e59f300c e5933014 e12fff33 eafffff9 c10f9084 c1006c94 e1a0c00d
+[   17.400730] 8ac0  e92dd800 e24cb004 e52de004 e8bd4000 f1080040 e89da800 e1a0c00d e92dd800
+[   17.401514] 8ae0  e24cb004 e52de004 e8bd4000 e3a00001 eb00587b e89da800 e1a0c00d e92dd800
+[   17.402297] 8b00  e24cb004 e52de004 e8bd4000 e3a00002 eb005873 e89da800 e1a0c00d e92dd8f0
+[   17.403077] 
+[   17.403232] LR: 0xc0108a30:
+[   17.403508] 8a30  1afffff4 e59f0034 eb038575 e1550004 1affffeb e24bd024 e89dabf0 e51b1028
+[   17.404290] 8a50  e1a00006 eb03856e eafffff2 3fffff00 c0cc7bdb c0cc7d2f c0cc7bcf c0cc7be2
+[   17.405073] 8a70  c0d64400 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000 e59f3024 e5933000
+[   17.405854] 8a90  e3530000 0a000002 e12fff33 f1080080 e89da800 e59f300c e5933014 e12fff33
+[   17.406637] 8ab0  eafffff9 c10f9084 c1006c94 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000
+[   17.407417] 8ad0  f1080040 e89da800 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000 e3a00001
+[   17.408200] 8af0  eb00587b e89da800 e1a0c00d e92dd800 e24cb004 e52de004 e8bd4000 e3a00002
+[   17.408981] 8b10  eb005873 e89da800 e1a0c00d e92dd8f0 e24cb004 e24dd050 e52de004 e8bd4000
+[   17.409760] 
+[   17.409916] SP: 0xee969f28:
+[   17.410192] 9f28  c010149c c010ee70 c0108aa0 60000013 ffffffff ee969f8c 6000406a c1006d74
+[   17.410974] 9f48  ee969fb4 ee969f58 c010d094 c0101420 00000001 00000000 00000000 c0119f60
+[   17.411755] 9f68  00000000 00000000 c0fad3e8 c10f9300 6000406a c1006d74 00000000 ee969fb4
+[   17.412537] 9f88  ee969fb8 ee969fa8 c0108ab0 c0108aa0 60000013 ffffffff 00000051 c016885c
+[   17.413320] 9fa8  ee969fc4 ee969fb8 c016885c c0108a80 ee969fdc ee969fc8 c0168b38 c0168830
+[   17.414102] 9fc8  00000003 c10f9300 ee969ff4 ee969fe0 c010ebe0 c01688cc 8e94c06a 00000051
+[   17.414883] 9fe8  00000000 ee969ff8 6010186c c010eabc 00000000 00000000 00000000 00000000
+[   17.415665] a008  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.416445] 
+[   17.416600] IP: 0xee969f38:
+[   17.416876] 9f38  ffffffff ee969f8c 6000406a c1006d74 ee969fb4 ee969f58 c010d094 c0101420
+[   17.417658] 9f58  00000001 00000000 00000000 c0119f60 00000000 00000000 c0fad3e8 c10f9300
+[   17.418440] 9f78  6000406a c1006d74 00000000 ee969fb4 ee969fb8 ee969fa8 c0108ab0 c0108aa0
+[   17.419222] 9f98  60000013 ffffffff 00000051 c016885c ee969fc4 ee969fb8 c016885c c0108a80
+[   17.420004] 9fb8  ee969fdc ee969fc8 c0168b38 c0168830 00000003 c10f9300 ee969ff4 ee969fe0
+[   17.420787] 9fd8  c010ebe0 c01688cc 8e94c06a 00000051 00000000 ee969ff8 6010186c c010eabc
+[   17.421570] 9ff8  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.422353] a018  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.423133] 
+[   17.423289] FP: 0xee969f34:
+[   17.423566] 9f34  60000013 ffffffff ee969f8c 6000406a c1006d74 ee969fb4 ee969f58 c010d094
+[   17.424349] 9f54  c0101420 00000001 00000000 00000000 c0119f60 00000000 00000000 c0fad3e8
+[   17.425130] 9f74  c10f9300 6000406a c1006d74 00000000 ee969fb4 ee969fb8 ee969fa8 c0108ab0
+[   17.425912] 9f94  c0108aa0 60000013 ffffffff 00000051 c016885c ee969fc4 ee969fb8 c016885c
+[   17.426693] 9fb4  c0108a80 ee969fdc ee969fc8 c0168b38 c0168830 00000003 c10f9300 ee969ff4
+[   17.427475] 9fd4  ee969fe0 c010ebe0 c01688cc 8e94c06a 00000051 00000000 ee969ff8 6010186c
+[   17.428256] 9ff4  c010eabc 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.429039] a014  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[   17.429818] 
+[   17.429973] R3: 0xc0119ee0:
+[   17.430250] 9ee0  e12fff1e e5801000 e3c13e3f e3c33003 e1833002 e3833012 e3110010 13833040
+[   17.431031] 9f00  e2211040 e31100c0 13833c02 e3110c01 13833020 e3110c02 13833001 e3110002
+[   17.431814] 9f20  13110001 12211b02 13110b02 03a03000 e5a03800 e320f000 e12fff1e 2120c302
+[   17.432594] 9f40  10c03c7d e12fff1e ee110f10 e3
