@@ -94,17 +94,6 @@ Swap:
     /swap.img swap swap defaults 0 0
 
 
-Slackware Links:
-
-    http://arm.slackware.com/
-    http://arm.slackware.com/getslack/
-    ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/isolinux/initrd-armv7.img
-    ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/
-
-Ubuntu MATE links:
-
-    https://ubuntu-mate.org/
-    https://ubuntu-mate.org/raspberry-pi/
 
 Keeping multiple distributions on same SD card:
 
@@ -126,3 +115,14 @@ similarly move files for other distributions too.
     mv * ubuntu-mate-16.04
     mv ubuntu-mate-16.04/{slackware-14.2, zImage, extlinux/, initrd*} .
 
+Slackware Links:
+
+    http://arm.slackware.com/
+    http://arm.slackware.com/getslack/
+    ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/isolinux/initrd-armv7.img
+    ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/
+
+Ubuntu MATE links:
+
+    https://ubuntu-mate.org/
+    https://ubuntu-mate.org/raspberry-pi/
