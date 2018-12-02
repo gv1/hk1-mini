@@ -1,3 +1,125 @@
+DDR Version V1.06 20171026
+In
+300MHz
+DDR3
+Bus Width=16 Col=11 Bank=8 Row=16 CS=1 Die Bus-Width=16 Size=2048MB
+mach:3
+OUT
+Boot1 Release Time: Feb  2 2018 15:48:13, version: 2.38
+ChipType = 0xc, 341
+SdmmcInit=2 0
+BootCapSize=1000
+UserCapSize=14910MB
+FwPartOffset=2000 , 1000
+SdmmcInit=0 0
+BootCapSize=0
+UserCapSize=15193MB
+FwPartOffset=2000 , 0
+StorageInit ok = 299352
+SecureMode = 0
+LOADER Check OK! 0x61000000, 368646
+TOS    Check OK! 0x68400000, 401373
+Enter Trust OS
+INF TEE-CORE:init_primary_helper:319: Initializing (1.0.1-79-g2825a12 #2 2018å¹´ 06æœˆ 13æ—¥ æ˜ŸæœŸä¸‰ 02:15:50 UTC arm)
+INF TEE-CORE:init_primary_helper:320: Release version: 1.9
+INF TEE-CORE:init_teecore:79: teecore inits done
+
+
+U-Boot 2017.09-gb34cbcd-dirty (Nov 11 2018 - 10:32:56 +0530)
+
+Model: Rockchip RK3229 Evaluation board
+DRAM:  2 GiB
+Relocation Offset is: 7ef18000
+GV arch/arm/mach-rockchip/board board_init
+MMC:   dwmmc@30000000: 1, dwmmc@30020000: 0
+*** Warning - bad CRC, using default environment
+
+In:    serial@11030000
+Out:   serial@11030000
+Err:   serial@11030000
+Model: Rockchip RK3229 Evaluation board
+GV processing command : run rkimg_bootdev 
+GV processing command : mmc dev 1 
+switch to partitions #0, OK
+mmc1 is current device
+GV processing command : rkimgtest mmc 1 
+Unknown command 'rkimgtest' - try 'help'
+GV processing command : mmc dev 0 
+switch to partitions #0, OK
+mmc0(part 0) is current device
+GV processing command : setenv devtype mmc 
+GV processing command : setenv devnum 0 
+rockchip_dnl_key_pressed adc_channel_single_shot fail! ret=-19
+get part misc fail -1
+CLK:      apll           600000000 Hz
+          dpll           600000000 Hz
+          cpll           500000000 Hz
+          gpll          1200000000 Hz
+        armclk           600000000 Hz
+      aclk_bus           150000000 Hz
+      hclk_bus            75000000 Hz
+      pclk_bus            75000000 Hz
+     aclk_peri           150000000 Hz
+     hclk_peri            75000000 Hz
+     pclk_peri            75000000 Hz
+Net:   
+Warning: ethernet@30200000 (eth0) using random MAC address - ca:f6:53:33:b2:90
+eth0: ethernet@30200000
+Hit any key to stop autoboot:  0 
+GV processing command : boot_android mmc 0 
+android_bootloader_boot_flow Could not find misc partition
+MMC: block number 0xb7e5914e exceeds max(0x1d1f000)
+failed to read ca head from misc
+get part misc fail -1
+ANDROID: reboot reason: "(none)"
+android_bootloader_boot_flow Could not found bootable partition boot
+Android boot failed, error -1.
+GV processing command : bootrkp 
+Unknown command 'bootrkp' - try 'help'
+GV processing command : run distro_bootcmd 
+GV : command : target=mmc1 
+GV processing command : run bootcmd_mmc1 
+GV processing command : setenv devnum 1 
+GV processing command : run mmc_boot 
+GV processing command : mmc dev 1 
+switch to partitions #0, OK
+mmc1 is current device
+GV processing command : setenv devtype mmc 
+GV processing command : run scan_dev_for_boot_part 
+GV processing command : part list mmc 1 -bootable devplist 
+GV processing command : env exists devplist 
+GV processing command : setenv devplist 1 
+GV : command : distro_bootpart=1 
+GV processing command : fstype mmc 1:1 bootfstype 
+GV processing command : run scan_dev_for_boot 
+GV processing command : echo Scanning mmc 1:1... 
+Scanning mmc 1:1...
+GV : command : prefix=/ 
+GV processing command : run scan_dev_for_extlinux 
+GV processing command : test -e mmc 1:1 /extlinux/extlinux.conf 
+GV processing command : echo Found /extlinux/extlinux.conf 
+Found /extlinux/extlinux.conf
+GV processing command : run boot_extlinux 
+GV processing command : sysboot mmc 1:1 any 0x60000000 /extlinux/extlinux.conf 
+Retrieving file: /extlinux/extlinux.conf
+268 bytes read in 7 ms (37.1 KiB/s)
+1:	kernel-4.4
+Retrieving file: /zImage
+6925360 bytes read in 300 ms (22 MiB/s)
+append: dyndbg="init/initramfs.c +p" earlycon=uart8250,mmio32,0x11030000 console=ttyS2,1500000n8 console=tty0 console=uart0 rw root=/dev/mmcblk0p1 rootfstype=ext4 storagetype=mmc init=/sbin/init rootwait 
+Retrieving file: /rk3229-evb.dtb
+36493 bytes read in 7 ms (5 MiB/s)
+## Flattened Device Tree blob at 61f00000
+   Booting using the fdt blob at 0x61f00000
+  'reserved-memory' ramoops@62e00000: addr=62e00000 size=f0000
+  'reserved-memory' trust@0x68400000: addr=68400000 size=e00000
+   Loading Device Tree to 7fff4000, end 7ffffe8c ... OK
+Adding bank: start=0x60000000, size=0x08400000
+Adding bank: start=0x68500000, size=0x77b00000
+
+Starting kernel ...
+
+
 [    0.000000] Booting Linux on physical CPU 0x0
 [    0.000000] Initializing cgroup subsys cpuset
 [    0.000000] Initializing cgroup subsys cpu
@@ -12,12 +134,6 @@
 [    0.000000] Reserved memory: failed to reserve memory for node 'secure-memory@80000000': base 0x80000000, size 0 MiB
 [    0.000000] cma: Reserved 16 MiB at 0xdf000000
 [    0.000000] Memory policy: Data cache writeback
-[    0.000000] On node 0 totalpages: 520704
-[    0.000000] free_area_init_node: node 0, pgdat c10cd204, node_mem_map eeffa000
-[    0.000000]   Normal zone: 1536 pages used for memmap
-[    0.000000]   Normal zone: 0 pages reserved
-[    0.000000]   Normal zone: 193024 pages, LIFO batch:31
-[    0.000000]   HighMem zone: 327680 pages, LIFO batch:31
 [    0.000000] ------------[ cut here ]------------
 [    0.000000] WARNING: CPU: 0 PID: 0 at arch/arm/kernel/devtree.c:157 arm_dt_init_cpu_maps+0x19c/0x1d4()
 [    0.000000] DT /cpu 2 nodes greater than max cores 1, capping them
@@ -39,8 +155,6 @@
 [    0.000000] psci: Using standard PSCI v0.2 function IDs
 [    0.000000] psci: MIGRATE_INFO_TYPE not supported.
 [    0.000000] CPU: All CPU(s) started in SVC mode.
-[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
-[    0.000000] pcpu-alloc: [0] 0 
 [    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 519168
 [    0.000000] Kernel command line: dyndbg="init/initramfs.c +p" earlycon=uart8250,mmio32,0x11030000 console=ttyS2,1500000n8 console=tty0 console=uart0 rw root=/dev/mmcblk0p1 rootfstype=ext4 storagetype=mmc init=/sbin/init rootwait 
 [    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
@@ -48,25 +162,19 @@
 [    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
 [    0.000000] Memory: 2031192K/2082816K available (10240K kernel code, 972K rwdata, 3040K rodata, 1024K init, 570K bss, 35240K reserved, 16384K cma-reserved, 1294336K highmem)
 [    0.000000] Virtual kernel memory layout:
-                   vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-                   fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
-                   vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
-                   lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
-                   pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
-                   modules : 0xbf000000 - 0xbfe00000   (  14 MB)
-                     .text : 0xc0008000 - 0xc0b00000   (11232 kB)
-                     .init : 0xc0f00000 - 0xc1000000   (1024 kB)
-                     .data : 0xc1000000 - 0xc10f3310   ( 973 kB)
-                      .bss : 0xc10f5000 - 0xc1183878   ( 571 kB)
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0b00000   (11232 kB)
+[    0.000000]       .init : 0xc0f00000 - 0xc1000000   (1024 kB)
+[    0.000000]       .data : 0xc1000000 - 0xc10f3310   ( 973 kB)
+[    0.000000]        .bss : 0xc10f5000 - 0xc1183878   ( 571 kB)
 [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
 [    0.000000] NR_IRQS:16 nr_irqs:16 16
 [    0.000000] rockchip_clk_register_branches: unknown clock type 9
-[    0.000000] rockchip_mmc_get_phase: invalid clk rate
-[    0.000000] rockchip_mmc_get_phase: invalid clk rate
-[    0.000000] rockchip_mmc_get_phase: invalid clk rate
-[    0.000000] rockchip_mmc_get_phase: invalid clk rate
-[    0.000000] rockchip_mmc_get_phase: invalid clk rate
-[    0.000000] rockchip_mmc_get_phase: invalid clk rate
 [    0.000000] Architected cp15 timer(s) running at 24.00MHz (virt).
 [    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
 [    0.000008] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
@@ -95,20 +203,11 @@
 [    0.121617] DMA: preallocated 256 KiB pool for atomic coherent allocations
 [    0.123694] cpuidle: using governor ladder
 [    0.124115] cpuidle: using governor menu
-[    0.139139] gpiochip_add_data: registered GPIOs 0 to 31 on device: gpio0
-[    0.139325] gpiochip_add_data: registered GPIOs 32 to 63 on device: gpio1
-[    0.139500] gpiochip_add_data: registered GPIOs 64 to 95 on device: gpio2
-[    0.139663] gpiochip_add_data: registered GPIOs 96 to 127 on device: gpio3
 [    0.145510] console [pstore-1] enabled
 [    0.145897] pstore: Registered ramoops as persistent store backend
 [    0.146490] ramoops: attached 0xf0000@0x62e00000, ecc: 0/0
 [    0.150023] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
 [    0.150812] hw-breakpoint: maximum watchpoint size is 8 bytes.
-[    0.170460] of_get_named_gpiod_flags: can't parse 'gpio' property of node '/regulators/regulator@0[0]'
-[    0.170967] of_get_named_gpiod_flags: can't parse 'gpio' property of node '/regulators/regulator@1[0]'
-[    0.171688] of_get_named_gpiod_flags: parsed 'gpio' property of node '/vcc-host-regulator[0]' - status (0)
-[    0.172380] of_get_named_gpiod_flags: parsed 'gpio' property of node '/otg-vbus-regulator[0]' - status (0)
-[    0.172908] of_get_named_gpiod_flags: can't parse 'gpio' property of node '/vcc-phy-regulator[0]'
 [    0.173907] iommu: Adding device 20050000.vop to group 0
 [    0.175798] SCSI subsystem initialized
 [    0.176567] usbcore: registered new interface driver usbfs
@@ -158,18 +257,6 @@
 [    0.313036] phy phy-11000000.syscon:usb2-phy@800.2: Failed to get VBUS supply regulator
 [    0.322246] dma-pl330 110f0000.pdma: Loaded driver for PL330 DMAC-241330
 [    0.322926] dma-pl330 110f0000.pdma: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-20 Num_Events-16
-[    0.324903] pwm-regulator vdd-arm-regulator: GPIO lookup for consumer enable
-[    0.324928] pwm-regulator vdd-arm-regulator: using device tree for GPIO lookup
-[    0.324948] of_get_named_gpiod_flags: can't parse 'enable-gpios' property of node '/vdd-arm-regulator[0]'
-[    0.324965] of_get_named_gpiod_flags: can't parse 'enable-gpio' property of node '/vdd-arm-regulator[0]'
-[    0.324979] pwm-regulator vdd-arm-regulator: using lookup tables for GPIO lookup
-[    0.324996] pwm-regulator vdd-arm-regulator: lookup for GPIO enable failed
-[    0.325715] pwm-regulator vdd-log-regulator: GPIO lookup for consumer enable
-[    0.325738] pwm-regulator vdd-log-regulator: using device tree for GPIO lookup
-[    0.325755] of_get_named_gpiod_flags: can't parse 'enable-gpios' property of node '/vdd-log-regulator[0]'
-[    0.325771] of_get_named_gpiod_flags: can't parse 'enable-gpio' property of node '/vdd-log-regulator[0]'
-[    0.325786] pwm-regulator vdd-log-regulator: using lookup tables for GPIO lookup
-[    0.325801] pwm-regulator vdd-log-regulator: lookup for GPIO enable failed
 [    0.326913] Serial: 8250/16550 driver, 5 ports, IRQ sharing disabled
 [    0.330715] 11020000.serial: ttyS1 at MMIO 0x11020000 (irq = 30, base_baud = 1500000) is a 16550A
 [    0.333461] [drm] Initialized drm 1.1.0 20060810
@@ -211,7 +298,6 @@
 [    0.506132]  TX Checksum insertion supported
 [    0.514730]  Wake-Up On Lan supported
 [    0.523317]  Enable RX Mitigation via HW Watchdog Timer
-[    0.532159] of_get_named_gpiod_flags: can't parse 'snps,reset-gpio' property of node '/ethernet@30200000[0]'
 [    0.546690] libphy: stmmac: probed
 [    0.555166] eth%d: PHY ID 1234d400 at 0 IRQ POLL (stmmac-0:00) active
 [    0.563858] eth%d: PHY ID 00000000 at 1 IRQ POLL (stmmac-0:01)
@@ -401,18 +487,6 @@
 [    2.825913] dwmmc_rockchip 30000000.dwmmc: DW MMC controller at irq 39,32 bit host data width,256 deep fifo
 [    2.834563] dwmmc_rockchip 30000000.dwmmc: No vmmc regulator found
 [    2.842730] dwmmc_rockchip 30000000.dwmmc: No vqmmc regulator found
-[    2.850839] dwmmc_rockchip 30000000.dwmmc: GPIO lookup for consumer cd
-[    2.850856] dwmmc_rockchip 30000000.dwmmc: using device tree for GPIO lookup
-[    2.850876] of_get_named_gpiod_flags: can't parse 'cd-gpios' property of node '/dwmmc@30000000[0]'
-[    2.850893] of_get_named_gpiod_flags: can't parse 'cd-gpio' property of node '/dwmmc@30000000[0]'
-[    2.850908] dwmmc_rockchip 30000000.dwmmc: using lookup tables for GPIO lookup
-[    2.850924] dwmmc_rockchip 30000000.dwmmc: lookup for GPIO cd failed
-[    2.850942] dwmmc_rockchip 30000000.dwmmc: GPIO lookup for consumer wp
-[    2.850956] dwmmc_rockchip 30000000.dwmmc: using device tree for GPIO lookup
-[    2.850972] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30000000[0]'
-[    2.850987] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30000000[0]'
-[    2.851002] dwmmc_rockchip 30000000.dwmmc: using lookup tables for GPIO lookup
-[    2.851016] dwmmc_rockchip 30000000.dwmmc: lookup for GPIO wp failed
 [    2.870367] mmc_host mmc0: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)
 [    2.891403] dwmmc_rockchip 30000000.dwmmc: 1 slots initialized
 [    2.902309] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
@@ -422,12 +496,6 @@
 [    2.939498] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
 [    2.948589] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
 [    2.957146] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[    2.965864] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[    2.965886] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[    2.965933] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[    2.965954] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[    2.965969] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[    2.966000] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
 [    2.966638] dwmmc_rockchip 30020000.dwmmc: IDMAC supports 32-bit address mode.
 [    2.975289] dwmmc_rockchip 30020000.dwmmc: Using internal DMA controller.
 [    2.983709] dwmmc_rockchip 30020000.dwmmc: Version ID is 270a
@@ -435,12 +503,6 @@
 [    3.000821] dwmmc_rockchip 30020000.dwmmc: 'clock-freq-min-max' property was deprecated.
 [    3.009456] dwmmc_rockchip 30020000.dwmmc: No vmmc regulator found
 [    3.017761] dwmmc_rockchip 30020000.dwmmc: No vqmmc regulator found
-[    3.025995] dwmmc_rockchip 30020000.dwmmc: GPIO lookup for consumer wp
-[    3.026013] dwmmc_rockchip 30020000.dwmmc: using device tree for GPIO lookup
-[    3.026031] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30020000[0]'
-[    3.026048] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30020000[0]'
-[    3.026064] dwmmc_rockchip 30020000.dwmmc: using lookup tables for GPIO lookup
-[    3.026079] dwmmc_rockchip 30020000.dwmmc: lookup for GPIO wp failed
 [    3.038718] mmc_host mmc0: Bus speed (slot 0) = 50000000Hz (slot req 50000000Hz, actual 50000000HZ div = 0)
 [    3.047583] mmc_host mmc1: Bus speed (slot 0) = 2343750Hz (slot req 400000Hz, actual 390625HZ div = 3)
 [    3.056347] mmc0: new high speed SDHC card at address aaaa
@@ -484,19 +546,11 @@
 [    3.429844] Bluetooth: HIDP socket layer initialized
 [    3.438654] 8021q: 802.1Q VLAN Support v1.8
 [    3.447359] lib80211: common routines for IEEE802.11 drivers
-[    3.456169] lib80211_crypt: registered algorithm 'NULL'
-[    3.456196] lib80211_crypt: registered algorithm 'WEP'
-[    3.456217] lib80211_crypt: registered algorithm 'CCMP'
-[    3.456236] lib80211_crypt: registered algorithm 'TKIP'
 [    3.456257] [WLAN_RFKILL]: Enter rfkill_wlan_init
 [    3.465275] [WLAN_RFKILL]: Enter rfkill_wlan_probe
 [    3.473885] [WLAN_RFKILL]: wlan_platdata_parse_dt: wifi_chip_type = ap6335
 [    3.482764] [WLAN_RFKILL]: wlan_platdata_parse_dt: enable wifi power control.
 [    3.491469] [WLAN_RFKILL]: wlan_platdata_parse_dt: wifi power controled by gpio.
-[    3.500119] of_get_named_gpiod_flags: can't parse 'WIFI,poweren_gpio' property of node '/wireless-wlan[0]'
-[    3.500137] of_get_named_gpiod_flags: can't parse 'WIFI,vbat_gpio' property of node '/wireless-wlan[0]'
-[    3.500153] of_get_named_gpiod_flags: can't parse 'WIFI,reset_gpio' property of node '/wireless-wlan[0]'
-[    3.500211] of_get_named_gpiod_flags: parsed 'WIFI,host_wake_irq' property of node '/wireless-wlan[0]' - status (0)
 [    3.500249] [WLAN_RFKILL]: wlan_platdata_parse_dt: get property: WIFI,host_wake_irq = 28, flags = 0.
 [    3.509004] [WLAN_RFKILL]: wlan_platdata_parse_dt: The ref_wifi_clk not found !
 [    3.517545] [WLAN_RFKILL]: rfkill_wlan_probe: init gpio
@@ -505,221 +559,4 @@
 [    3.542516] Key type dns_resolver registered
 [    3.551557] ThumbEE CPU extension supported.
 [    3.561392] bootconsole [uart0] disabled
-[    3.569518] Loading compiled-in X.509 certificates
-[    3.577557] pvtm list NULL
-[    3.586634] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
-[    3.594932] dwmmc_rockchip 30010000.dwmmc: IDMAC supports 32-bit address mode.
-[    3.603045] dwmmc_rockchip 30010000.dwmmc: Using internal DMA controller.
-[    3.610896] dwmmc_rockchip 30010000.dwmmc: Version ID is 270a
-[    3.618591] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
-[    3.626435] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
-[    3.634030] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[    3.641636] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[    3.641656] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[    3.641677] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[    3.641693] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[    3.641708] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[    3.641723] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
-[    3.643860] of_get_named_gpiod_flags: can't parse 'simple-audio-card,hp-det-gpio' property of node '/hdmi-sound[0]'
-[    3.643891] of_get_named_gpiod_flags: can't parse 'simple-audio-card,mic-det-gpio' property of node '/hdmi-sound[0]'
-[    3.645938] asoc-simple-card hdmi-sound: i2s-hifi <-> 100c0000.i2s0 mapping ok
-[    3.656544] of_get_named_gpiod_flags: can't parse 'simple-audio-card,hp-det-gpio' property of node '/spdif-sound[0]'
-[    3.656578] of_get_named_gpiod_flags: can't parse 'simple-audio-card,mic-det-gpio' property of node '/spdif-sound[0]'
-[    3.658493] asoc-simple-card spdif-sound: dit-hifi <-> 100d0000.spdif mapping ok
-[    3.669306] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
-[    3.677402] dwmmc_rockchip 30010000.dwmmc: IDMAC supports 32-bit address mode.
-[    3.685350] dwmmc_rockchip 30010000.dwmmc: Using internal DMA controller.
-[    3.693023] dwmmc_rockchip 30010000.dwmmc: Version ID is 270a
-[    3.700649] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
-[    3.708427] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
-[    3.716002] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[    3.723605] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[    3.723623] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[    3.723644] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[    3.723661] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[    3.723676] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[    3.723691] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
-[    3.725847] of_get_named_gpiod_flags: parsed 'gpios' property of node '/gpio_keys/power-key[0]' - status (0)
-[    3.725954] gpio-119 (GPIO Key Power): gpiod_set_debounce: missing set() or set_debounce() operations
-[    3.726409] input: gpio_keys as /devices/platform/gpio_keys/input/input0
-[    3.736119] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
-[    3.744440] hctosys: unable to open rtc device (rtc0)
-[    3.752632] dwmmc_rockchip 30010000.dwmmc: IDMAC supports 32-bit address mode.
-[    3.769419] dwmmc_rockchip 30010000.dwmmc: Using internal DMA controller.
-[    3.777537] dwmmc_rockchip 30010000.dwmmc: Version ID is 270a
-[    3.788352] vendor storage:20160801 ret = 0
-[    3.803746] vcc_otg_vbus: disabling
-[    3.811911] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
-[    3.819831] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
-[    3.827622] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[    3.835394] I : [File] : drivers/gpu/arm/mali400/mali/linux/mali_kernel_linux.c; [Line] : 417; [Func] : mali_module_init(); svn_rev_string_from_arm of this mali_ko is '', rk_ko_ver is '5', built at '20:12:26', on 'Nov 12 2018'.
-[    3.852114] mali-utgard 20001000.gpu: mali_platform_device->num_resources = 13
-[    3.860573] mali-utgard 20001000.gpu: resource[0].start = 0x0x20001000
-[    3.868950] mali-utgard 20001000.gpu: resource[1].start = 0x0x20000000
-[    3.877203] mali-utgard 20001000.gpu: resource[2].start = 0x0x20003000
-[    3.885318] mali-utgard 20001000.gpu: resource[3].start = 0x0x20008000
-[    3.893425] mali-utgard 20001000.gpu: resource[4].start = 0x0x20004000
-[    3.901407] mali-utgard 20001000.gpu: resource[5].start = 0x0x2000a000
-[    3.909304] mali-utgard 20001000.gpu: resource[6].start = 0x0x20005000
-[    3.917132] mali-utgard 20001000.gpu: resource[7].start = 0x0x00000021
-[    3.924849] mali-utgard 20001000.gpu: resource[8].start = 0x0x00000022
-[    3.932438] mali-utgard 20001000.gpu: resource[9].start = 0x0x00000023
-[    3.939870] mali-utgard 20001000.gpu: resource[10].start = 0x0x00000022
-[    3.947293] mali-utgard 20001000.gpu: resource[11].start = 0x0x00000023
-[    3.954646] mali-utgard 20001000.gpu: resource[12].start = 0x0x00000022
-[    3.961886] D : [File] : drivers/gpu/arm/mali400/mali/platform/rk/rk.c; [Line] : 623; [Func] : mali_platform_device_init(); to add platform_specific_data to platform_device_of_mali.
-[    3.977194] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[    3.977211] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[    3.977233] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[    3.977249] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[    3.977264] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[    3.977280] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
-[    3.978810] mali-utgard 20001000.gpu: leakage=5
-[    3.986642] mali-utgard 20001000.gpu: leakage-volt-sel=0
-[    3.994434] mali-utgard 20001000.gpu: Failed to get pvtm
-[    4.006161] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
-[    4.014357] Mali: Mali device driver loaded
-[    4.022265] dwmmc_rockchip 30010000.dwmmc: IDMAC supports 32-bit address mode.
-[    4.030550] ALSA device list:
-[    4.038291]   #0: rockchip,hdmi
-[    4.045916]   #1: ROCKCHIP,SPDIF
-[    4.053655] dwmmc_rockchip 30010000.dwmmc: Using internal DMA controller.
-[    4.061396] dwmmc_rockchip 30010000.dwmmc: Version ID is 270a
-[    4.069057] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
-[    4.077120] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
-[    4.084736] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[    4.092286] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[    4.092305] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[    4.092326] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[    4.092342] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[    4.092357] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[    4.092373] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
-[    4.123643] EXT4-fs (mmcblk0p1): mounted filesystem with ordered data mode. Opts: (null)
-[    4.131646] VFS: Mounted root (ext4 filesystem) on device 179:1.
-[    4.158914] devtmpfs: mounted
-[    4.169091] Freeing unused kernel memory: 1024K
-[    5.022593] random: udevd: uninitialized urandom read (16 bytes read, 19 bits of entropy available)
-[    5.034859] random: udevd: uninitialized urandom read (16 bytes read, 20 bits of entropy available)
-[    5.042246] random: udevd: uninitialized urandom read (16 bytes read, 20 bits of entropy available)
-[    5.049176] random: udevd: uninitialized urandom read (16 bytes read, 20 bits of entropy available)
-[    5.055924] random: udevd: uninitialized urandom read (16 bytes read, 20 bits of entropy available)
-[    5.413507] udevd[168]: starting eudev-3.1.5
-[    8.052039] cfg80211: World regulatory domain updated:
-[    8.058838] cfg80211:  DFS Master region: unset
-[    8.059026] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp), (dfs_cac_time)
-[    8.072867] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
-[    8.080235] cfg80211:   (2457000 KHz - 2482000 KHz @ 20000 KHz, 92000 KHz AUTO), (N/A, 2000 mBm), (N/A)
-[    8.087748] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (N/A, 2000 mBm), (N/A)
-[    8.095350] cfg80211:   (5170000 KHz - 5250000 KHz @ 80000 KHz, 160000 KHz AUTO), (N/A, 2000 mBm), (N/A)
-[    8.103128] cfg80211:   (5250000 KHz - 5330000 KHz @ 80000 KHz, 160000 KHz AUTO), (N/A, 2000 mBm), (0 s)
-[    8.110874] cfg80211:   (5490000 KHz - 5730000 KHz @ 160000 KHz), (N/A, 2000 mBm), (0 s)
-[    8.118698] cfg80211:   (5735000 KHz - 5835000 KHz @ 80000 KHz), (N/A, 2000 mBm), (N/A)
-[    8.126634] cfg80211:   (57240000 KHz - 63720000 KHz @ 2160000 KHz), (N/A, 0 mBm), (N/A)
-[   12.098906] random: cgmanager: uninitialized urandom read (12 bytes read, 67 bits of entropy available)
-[   12.318116] random: dd: uninitialized urandom read (512 bytes read, 70 bits of entropy available)
-[   13.509155] random: udevadm: uninitialized urandom read (16 bytes read, 93 bits of entropy available)
-[   13.530430] random: udevadm: uninitialized urandom read (16 bytes read, 94 bits of entropy available)
-[   13.530666] random: udevadm: uninitialized urandom read (16 bytes read, 94 bits of entropy available)
-[   16.378082] random: nonblocking pool is initialized
-[   22.339038] rk_gmac-dwmac 30200000.ethernet: rk_get_eth_addr: mac address: ca:f6:53:33:b2:90
-[   22.339075] eth0: device MAC address ca:f6:53:33:b2:90
-[   25.047826] rockchip-vop 20050000.vop: [drm:vop_crtc_enable] Update mode to 1024x768p60, type: 11
-[   25.048727] [drm:hdmi_config_hdr_infoframe] *ERROR* Not support DRM Infoframe
-[   37.190359] usb 2-1: new high-speed USB device number 2 using ehci-platform
-[   37.342266] usb 2-1: New USB device found, idVendor=05e3, idProduct=0608
-[   37.342310] usb 2-1: New USB device strings: Mfr=0, Product=1, SerialNumber=0
-[   37.342326] usb 2-1: Product: USB2.0 Hub
-[   37.345780] hub 2-1:1.0: USB hub found
-[   37.346846] hub 2-1:1.0: 4 ports detected
-[   37.353198] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
-[   37.353368] dwmmc_rockchip 30010000.dwmmc: IDMAC supports 32-bit address mode.
-[   37.354156] dwmmc_rockchip 30010000.dwmmc: Using internal DMA controller.
-[   37.354192] dwmmc_rockchip 30010000.dwmmc: Version ID is 270a
-[   37.354256] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
-[   37.354341] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
-[   37.354357] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[   37.354392] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[   37.354408] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[   37.354429] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[   37.354446] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[   37.354460] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[   37.354476] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
-[   37.356672] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
-[   37.356817] dwmmc_rockchip 30010000.dwmmc: IDMAC supports 32-bit address mode.
-[   37.356981] dwmmc_rockchip 30010000.dwmmc: Using internal DMA controller.
-[   37.357010] dwmmc_rockchip 30010000.dwmmc: Version ID is 270a
-[   37.357071] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
-[   37.357154] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
-[   37.357169] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[   37.357198] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[   37.357213] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[   37.357232] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[   37.357248] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[   37.357263] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[   37.357279] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
-[   37.620411] usb 2-1.2: new low-speed USB device number 3 using ehci-platform
-[   37.734761] usb 2-1.2: New USB device found, idVendor=093a, idProduct=2510
-[   37.734803] usb 2-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
-[   37.734820] usb 2-1.2: Product: USB Optical Mouse
-[   37.734835] usb 2-1.2: Manufacturer: PixArt
-[   37.762618] input: PixArt USB Optical Mouse as /devices/platform/30080000.usb/usb2/2-1/2-1.2/2-1.2:1.0/0003:093A:2510.0001/input/input1
-[   37.764536] hid-generic 0003:093A:2510.0001: input,hidraw0: USB HID v1.11 Mouse [PixArt USB Optical Mouse] on usb-30080000.usb-1.2/input0
-[   37.766795] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
-[   37.766955] dwmmc_rockchip 30010000.dwmmc: IDMAC supports 32-bit address mode.
-[   37.776510] dwmmc_rockchip 30010000.dwmmc: Using internal DMA controller.
-[   37.776658] dwmmc_rockchip 30010000.dwmmc: Version ID is 270a
-[   37.776733] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
-[   37.776831] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
-[   37.776847] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[   37.776880] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[   37.776896] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[   37.776917] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[   37.776933] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[   37.776948] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[   37.776966] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
-[   37.779236] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
-[   37.779382] dwmmc_rockchip 30010000.dwmmc: IDMAC supports 32-bit address mode.
-[   37.779548] dwmmc_rockchip 30010000.dwmmc: Using internal DMA controller.
-[   37.779580] dwmmc_rockchip 30010000.dwmmc: Version ID is 270a
-[   37.779638] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
-[   37.779724] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
-[   37.779741] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[   37.779771] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[   37.779786] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[   37.779804] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[   37.779821] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[   37.779836] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[   37.779851] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
-[   37.860344] usb 2-1.4: new low-speed USB device number 4 using ehci-platform
-[   37.978477] usb 2-1.4: New USB device found, idVendor=413c, idProduct=2107
-[   37.978519] usb 2-1.4: New USB device strings: Mfr=1, Product=2, SerialNumber=0
-[   37.978536] usb 2-1.4: Product: Dell USB Entry Keyboard
-[   37.978580] usb 2-1.4: Manufacturer: Dell
-[   37.997605] input: Dell Dell USB Entry Keyboard as /devices/platform/30080000.usb/usb2/2-1/2-1.4/2-1.4:1.0/0003:413C:2107.0002/input/input2
-[   38.053522] hid-generic 0003:413C:2107.0002: input,hidraw1: USB HID v1.10 Keyboard [Dell Dell USB Entry Keyboard] on usb-30080000.usb-1.4/input0
-[   38.055469] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
-[   38.055625] dwmmc_rockchip 30010000.dwmmc: IDMAC supports 32-bit address mode.
-[   38.065043] dwmmc_rockchip 30010000.dwmmc: Using internal DMA controller.
-[   38.065119] dwmmc_rockchip 30010000.dwmmc: Version ID is 270a
-[   38.065208] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
-[   38.065310] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
-[   38.065326] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[   38.065358] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[   38.065374] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[   38.065393] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[   38.065410] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[   38.065425] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[   38.065441] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
-[   38.067650] dwmmc_rockchip 30010000.dwmmc: num-slots property not found, assuming 1 slot is available
-[   38.067800] dwmmc_rockchip 30010000.dwmmc: IDMAC supports 32-bit address mode.
-[   38.067966] dwmmc_rockchip 30010000.dwmmc: Using internal DMA controller.
-[   38.067999] dwmmc_rockchip 30010000.dwmmc: Version ID is 270a
-[   38.068062] dwmmc_rockchip 30010000.dwmmc: DW MMC controller at irq 40,32 bit host data width,256 deep fifo
-[   38.068166] dwmmc_rockchip 30010000.dwmmc: No vmmc regulator found
-[   38.068183] dwmmc_rockchip 30010000.dwmmc: No vqmmc regulator found
-[   38.068215] dwmmc_rockchip 30010000.dwmmc: GPIO lookup for consumer wp
-[   38.068231] dwmmc_rockchip 30010000.dwmmc: using device tree for GPIO lookup
-[   38.068250] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/dwmmc@30010000[0]'
-[   38.068268] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/dwmmc@30010000[0]'
-[   38.068283] dwmmc_rockchip 30010000.dwmmc: using lookup tables for GPIO lookup
-[   38.068299] dwmmc_rockchip 30010000.dwmmc: lookup for GPIO wp failed
+ÿßßß
