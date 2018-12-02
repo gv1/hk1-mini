@@ -105,3 +105,24 @@ Ubuntu MATE links:
 
     https://ubuntu-mate.org/
     https://ubuntu-mate.org/raspberry-pi/
+
+Keeping multiple distributions on same SD card:
+
+eg, once slackware is installed and ok:
+
+    mount sdcard to /mnt
+    cd /mnt
+    mkdir slackware-14.2
+    mv * slackware-14.2
+    mv slackware-14.2/{zImage, extlinux/, initrd*} .
+    ln -s slackware-14.2/* .
+    sync
+    
+similarly move files for other distributions too.
+
+    mount sdcard to /mnt
+    cd /mnt
+    mkdir ubuntu-mate-16.04
+    mv * ubuntu-mate-16.04
+    mv ubuntu-mate-16.04/{slackware-14.2, zImage, extlinux/, initrd*} .
+
