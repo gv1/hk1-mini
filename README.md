@@ -1,8 +1,10 @@
 # hk1-mini
 Slackware / Ubuntu on hk1 mini
 
-Issue: kernel is not SMP. Use command line paratmeter maxcpus=1 system gets hung as soon as another core
-is enabled using echo 1 > /sys/devices/system/cpu/cpuX/online  or so. 
+Issue: kernel is not SMP. Use command line paratmeter maxcpus=1 to get system up.
+System gets hung as soon as another core is enabled using 
+  
+    echo 1 > /sys/devices/system/cpu/cpuX/online  or so. 
 
 Slackware 14.2
 
@@ -48,6 +50,7 @@ make a bootable sd card:
  ### Ubuntu. using ubuntu-mate 16.04 for raspberry pi:
  
     setup bootable sdcard as above. get ubuntu ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.gz
+
     /sbin/fdisk -l ./ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img
      
     Disk ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img: 4.7 GiB, 5000000000 bytes, 9765625 sectors
@@ -110,7 +113,7 @@ eg, once slackware is installed and ok:
     ln -s slackware-14.2/* .
     sync
     
-## similarly move files for other distributions too.
+### similarly move files for other distributions too.
 
     mount sdcard to /mnt
     cd /mnt
@@ -118,10 +121,14 @@ eg, once slackware is installed and ok:
     mv * ubuntu-mate-16.04
     mv ubuntu-mate-16.04/{slackware-14.2, *dtb, zImage, extlinux/, initrd*} .
 
-## Debug via serial port
+	or for direct installation to subdir from image:
+
+    rsync -az /cdrom/ ubuntu-mate-16.04
+
+## Debug through serial port
 
 use a PL2303 type usb-serial dongle, connect to the serial port on boar ( need soldering ). see 
-https://github.com/gv1/hk1-mini/hk1.mini+pl2303.jpg.
+[connection](https://github.com/gv1/hk1-mini/hk1.mini+pl2303.jpg.)
 using minicom:
         
         port /dev/ttyUSB0
@@ -129,14 +136,34 @@ using minicom:
         HW/SW flow control - no       
         minicom -b 1500000 -C mini.cap
 
-Slackware Links:
+## Log files etc from OS
 
-    http://arm.slackware.com/
-    http://arm.slackware.com/getslack/
-    ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/isolinux/initrd-armv7.img
-    ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/
+### Slackware
 
-Ubuntu MATE links:
+    [black box screenshot] (slackware.log/blackbox.jpg)  
+    [cpuinfo](slackware.log/cpuinfo.txt)  
+    [dmesg](slackware.log/dmesg.txt)
+    [lsub -v](slackware.log/lsusb-v.txt)
+    [minicom capture file](slackware.log/mini.cap)  
+    [minicom capture file for SMP crash](slackware.log/mini.smp.cap)
 
-    https://ubuntu-mate.org/
-    https://ubuntu-mate.org/raspberry-pi/
+### Ubuntu
+
+    [cpuinfo](ubuntu.log/cpuinfo.txt)  
+    [dmesg](ubuntu.log/dmesg.txt)  [ifconfig](ubuntu.log/ifconfig.txt)
+    [minicom catpure file](ubuntu.log/mini.cap)
+    [mate desktop screen capture](ubuntu.log/ubuntu.mate.jpg)
+
+## Slackware Links:
+
+    [Arm Slackware](http://arm.slackware.com/)
+    [Getslack for arm](http://arm.slackware.com/getslack/)
+    [initrd-armv7.img](ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/isolinux/initrd-armv7.img)
+    [initrd-armv7.img local copy](/initrd-armv7.img)
+    [Slackware arm ftp dir](ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/)
+
+## Ubuntu MATE links:
+
+    [Ubuntu Mate](https://ubuntu-mate.org/)
+    [Ubuntu Mate for Raspberry PI](https://ubuntu-mate.org/raspberry-pi/)
+

@@ -1,0 +1,4 @@
+label kernel-4.4
+    kernel /boot.hk1.mini/zImage
+    fdt /boot.hk1.mini/rk3229-evb.dtb
+    append dyndbg="init/initramfs.c +p" earlycon=uart8250,mmio32,0x11030000 console=ttyS2,1500000n8 console=tty0 console=uart0 rw root=/dev/mmcblk0p1 rootfstype=ext4 storagetype=mmc init=/sbin/init rootwait 
