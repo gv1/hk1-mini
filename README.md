@@ -1,19 +1,20 @@
 # hk1-mini
 Slackware / Ubuntu on hk1 mini
 
-Issue: kernel is not SMP. 
+Issue: kernel is not SMP. Use command line paratmeter maxcpus=1 system gets hung as soon as another core
+is enabled using echo 1 > /sys/devices/system/cpu/cpuX/online  or so. 
 
 Slackware 14.2
 
 make a bootable sd card:
 
-method 1:
+## method 1:
         
-    dd if=./idbloader.img of=/dev/sdX seek=$((0x40))
-    dd if=./uboot.img of=/dev/sdX seek=$((0x4000)) conv=notrunc # $((0x4000))
-    dd if=./trust.img of=/dev/sdX seek=$((0x6000)) conv=notrunc # $((0x6000))
+    dd if=./boot.hk1.mini/idbloader.img of=/dev/sdX seek=$((0x40))
+    dd if=./boot.hk1.mini/uboot.img of=/dev/sdX seek=$((0x4000)) conv=notrunc # $((0x4000))
+    dd if=./boot.hk1.mini/trust.img of=/dev/sdX seek=$((0x6000)) conv=notrunc # $((0x6000))
   
-create a new partition like:
+### create a new partition like:
 
     Device     Boot  Start      End  Sectors  Id Type
     /dev/sdX1        32768 31116287 31083520  83 Linux
@@ -37,14 +38,14 @@ create a new partition like:
   
     reboot!
  
-method 2:
+## method 2:
   
     dd if=./sdcard.first10MB.img of=/dev/sdX 
   
     fdisk /dev/sdX and continue as above.
   
   
- Ubuntu. using ubuntu-mate 16.04 for raspberry pi:
+ ### Ubuntu. using ubuntu-mate 16.04 for raspberry pi:
  
     setup bootable sdcard as above. get ubuntu ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.gz
     /sbin/fdisk -l ./ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img
@@ -67,6 +68,8 @@ now mount second partition like:
  
     mount /dev/sdX1 /mnt
     rsync -az /cdrom/ /mnt
+    or for multiple distributions on same partition, something like:
+    rsync -az /cdrom/ /mnt/ubuntumate16.04/
 
 edit /etc/fstab to remove boot mount, and also change root to /dev/sdX1
 
@@ -83,7 +86,7 @@ remember to add either a swap partition or swap file.
 
 reboot!
 
-Swap:
+### Swap:
 
     # 2GB
     dd if=/dev/zero of=swap.img count=$((1024*1024*2*2)
@@ -95,7 +98,7 @@ Swap:
 
 
 
-Keeping multiple distributions on same SD card:
+## Keeping multiple distributions on same SD card:
 
 eg, once slackware is installed and ok:
 
@@ -103,17 +106,28 @@ eg, once slackware is installed and ok:
     cd /mnt
     mkdir slackware-14.2
     mv * slackware-14.2
-    mv slackware-14.2/{zImage, extlinux/, initrd*} .
+    mv slackware-14.2/{zImage, extlinux/, *dtb, initrd*} .
     ln -s slackware-14.2/* .
     sync
     
-similarly move files for other distributions too.
+## similarly move files for other distributions too.
 
     mount sdcard to /mnt
     cd /mnt
     mkdir ubuntu-mate-16.04
     mv * ubuntu-mate-16.04
-    mv ubuntu-mate-16.04/{slackware-14.2, zImage, extlinux/, initrd*} .
+    mv ubuntu-mate-16.04/{slackware-14.2, *dtb, zImage, extlinux/, initrd*} .
+
+## Debug via serial port
+
+use a PL2303 type usb-serial dongle, connect to the serial port on boar ( need soldering ). see 
+https://github.com/gv1/hk1-mini/hk1.mini+pl2303.jpg.
+using minicom:
+        
+        port /dev/ttyUSB0
+        8n1, 
+        HW/SW flow control - no       
+        minicom -b 1500000 -C mini.cap
 
 Slackware Links:
 
