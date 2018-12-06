@@ -6,6 +6,10 @@ System gets hung as soon as another core is enabled using
   
     echo 1 > /sys/devices/system/cpu/cpuX/online  or so. 
 
+Looks like this same issue is there even with the android kernel & dtb file, when used with slackware etc, 
+that comes on the emmc. It is worth looking at the android init process since there is no such problem when 
+running android!
+
 Slackware 14.2
 
 make a bootable sd card:
@@ -128,7 +132,8 @@ eg, once slackware is installed and ok:
 ## Debug through serial port
 
 use a PL2303 type usb-serial dongle, connect to the serial port on boar ( need soldering ). see 
-[connection](https://github.com/gv1/hk1-mini/hk1.mini+pl2303.jpg.)
+[connection](https://github.com/gv1/hk1-mini/hk1.mini+pl2303.jpg).
+![serial port connection](./hk1.mini+pl2303.jpg)
 using minicom:
         
     port /dev/ttyUSB0
