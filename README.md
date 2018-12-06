@@ -131,39 +131,40 @@ use a PL2303 type usb-serial dongle, connect to the serial port on boar ( need s
 [connection](https://github.com/gv1/hk1-mini/hk1.mini+pl2303.jpg.)
 using minicom:
         
-        port /dev/ttyUSB0
-        8n1, 
-        HW/SW flow control - no       
-        minicom -b 1500000 -C mini.cap
+    port /dev/ttyUSB0
+    8n1, 
+    HW/SW flow control - no       
+    minicom -b 1500000 -C mini.cap
 
 ## Log files etc from OS
 
 ### Slackware
 
-    [black box screenshot] (slackware.log/blackbox.jpg)  
-    [cpuinfo](slackware.log/cpuinfo.txt)  
-    [dmesg](slackware.log/dmesg.txt)
-    [lsub -v](slackware.log/lsusb-v.txt)
-    [minicom capture file](slackware.log/mini.cap)  
-    [minicom capture file for SMP crash](slackware.log/mini.smp.cap)
+   ![black box screenshot](/slackware.log/blackbox.jpg)  
+   ![cpuinfo](/slackware.log/cpuinfo.txt)  
+   ![dmesg](sl/ackware.log/dmesg.txt)
+   ![lsub -v](/slackware.log/lsusb-v.txt)
+   ![minicom capture file](/slackware.log/mini.cap)  
+   ![minicom capture file for SMP crash](/slackware.log/mini.smp.cap)
 
 ### Ubuntu
 
-    [cpuinfo](ubuntu.log/cpuinfo.txt)  
-    [dmesg](ubuntu.log/dmesg.txt)  [ifconfig](ubuntu.log/ifconfig.txt)
-    [minicom catpure file](ubuntu.log/mini.cap)
-    [mate desktop screen capture](ubuntu.log/ubuntu.mate.jpg)
+   ![cpuinfo](ubuntu.log/cpuinfo.txt)  
+   ![dmesg](ubuntu.log/dmesg.txt)  
+   ![ifconfig](ubuntu.log/ifconfig.txt)
+   ![minicom catpure file](ubuntu.log/mini.cap)
+   ![mate desktop screen capture](ubuntu.log/ubuntu.mate.jpg)
 
 ## Slackware Links:
 
-    [Arm Slackware](http://arm.slackware.com/)
-    [Getslack for arm](http://arm.slackware.com/getslack/)
-    [initrd-armv7.img](ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/isolinux/initrd-armv7.img)
-    [initrd-armv7.img local copy](/initrd-armv7.img)
-    [Slackware arm ftp dir](ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/)
+   ![Arm Slackware](http://arm.slackware.com/)
+   ![Getslack for arm](http://arm.slackware.com/getslack/)
+   ![initrd-armv7.img](ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/isolinux/initrd-armv7.img)
+   ![initrd-armv7.img local copy](/initrd-armv7.img)
+   ![Slackware arm ftp dir](ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/)
 
 ## Ubuntu MATE links:
 
-    [Ubuntu Mate](https://ubuntu-mate.org/)
-    [Ubuntu Mate for Raspberry PI](https://ubuntu-mate.org/raspberry-pi/)
+   ![Ubuntu Mate](https://ubuntu-mate.org/)
+   ![Ubuntu Mate for Raspberry PI](https://ubuntu-mate.org/raspberry-pi/)
 
