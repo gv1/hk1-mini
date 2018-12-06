@@ -1,0 +1,6 @@
+label kernel-4.4
+    kernel /boot.hk1.mini/zImage.hk1.mini
+    fdt /boot.hk1.mini/rk-kernel.hk1.mini.dtb
+    append earlycon=uart8250,mmio32,0x11030000 console=ttyFIQ0  androidboot.baseband=N/A androidboot.selinux=permissive androidboot.wificountrycode=US androidboot.veritymode=/dev/block/platform/30020000.dwmmc/by-name/metadata androidboot.hardware=rk30board androidboot.console=ttyFIQ0 firmware_class.path=/lib/firmware init=/sbin/init storagemedia=emmc uboot_logo=0x02000000@0xddc00000 loader.timestamp=2018-08-25_17:16:33 hdmi.vic=-1 tve.format=-1 Sec rootwait root=/dev/mmcblk0p1 rootfstype=ext4
+
+
