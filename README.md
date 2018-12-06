@@ -6,9 +6,9 @@ System gets hung as soon as another core is enabled using
   
     echo 1 > /sys/devices/system/cpu/cpuX/online  or so. 
 
-Looks like this same issue is there even with the android kernel & dtb file, when used with slackware etc, 
-that comes on the emmc. It is worth looking at the android init process since there is no such problem when 
-running android!
+Looks like this same issue is there even with the android kernel & dtb file which are on the emmc, when 
+used with Slackware, Ubuntu etc. It is worth looking at the android init process since there is no such problem 
+when running android!
 
 Slackware 14.2
 
@@ -104,7 +104,6 @@ reboot!
     /swap.img swap swap defaults 0 0
 
 
-
 ## Keeping multiple distributions on same SD card:
 
 eg, once slackware is installed and ok:
@@ -145,31 +144,45 @@ using minicom:
 
 ### Slackware
 
-    [black box screenshot](/slackware.log/blackbox.jpg)  
-    [cpuinfo](/slackware.log/cpuinfo.txt)  
-    [dmesg](sl/ackware.log/dmesg.txt)
-    [lsub -v](/slackware.log/lsusb-v.txt)
-    [minicom capture file](/slackware.log/mini.cap)  
-    [minicom capture file for SMP crash](/slackware.log/mini.smp.cap)
+[black box screenshot](/slackware.log/blackbox.jpg)
+
+[cpuinfo](/slackware.log/cpuinfo.txt)  
+
+[dmesg](sl/ackware.log/dmesg.txt)
+
+[lsub -v](/slackware.log/lsusb-v.txt)
+
+[minicom capture file](/slackware.log/mini.cap)  
+
+[minicom capture file for SMP crash](/slackware.log/mini.smp.cap)
 
 ### Ubuntu
 
-    [cpuinfo](ubuntu.log/cpuinfo.txt)  
-    [dmesg](ubuntu.log/dmesg.txt)  
-    [ifconfig](ubuntu.log/ifconfig.txt)
-    [minicom catpure file](ubuntu.log/mini.cap)
-    [mate desktop screen capture](ubuntu.log/ubuntu.mate.jpg)
+[cpuinfo](ubuntu.log/cpuinfo.txt)  
+
+[dmesg](ubuntu.log/dmesg.txt)  
+
+[ifconfig](ubuntu.log/ifconfig.txt)
+
+[minicom catpure file](ubuntu.log/mini.cap)
+
+[mate desktop screen capture](ubuntu.log/ubuntu.mate.jpg)
 
 ## Slackware Links:
 
-    [Arm Slackware](http://arm.slackware.com/)
-    [Getslack for arm](http://arm.slackware.com/getslack/)
-    [initrd-armv7.img](ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/isolinux/initrd-armv7.img)
-    [initrd-armv7.img local copy](/initrd-armv7.img)
-    [Slackware arm ftp dir](ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/)
+[Arm Slackware](https://arm.slackware.com/)
+
+[Getslack for arm](https://arm.slackware.com/getslack/)
+
+[initrd-armv7.img](https://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/isolinux/initrd-armv7.img)
+
+[initrd-armv7.img local copy](/initrd-armv7.img)
+
+[Slackware arm ftp dir](https://ftp.arm.slackware.com/slackwarearm/slackwarearm-14.2/)
 
 ## Ubuntu MATE links:
 
-    [Ubuntu Mate](https://ubuntu-mate.org/)
-    [Ubuntu Mate for Raspberry PI](https://ubuntu-mate.org/raspberry-pi/)
+[Ubuntu Mate](https://ubuntu-mate.org/)
+
+[Ubuntu Mate for Raspberry PI](https://ubuntu-mate.org/raspberry-pi/)
 
